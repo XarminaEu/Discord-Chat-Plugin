@@ -22,9 +22,6 @@
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\install.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\http_server.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\http_client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -73,9 +70,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\install.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\http_server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\http_client.h">

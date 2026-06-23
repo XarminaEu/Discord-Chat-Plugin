@@ -1,7 +1,5 @@
 #pragma once
 
-#include "http_server.h"
-
 #include <string>
 #include <memory>
 #include <functional>
@@ -10,7 +8,6 @@
 
 class DiscordWebhook;
 class DiscordBot;
-class HttpServer;
 
 class PalworldDiscordPlugin {
 public:
@@ -36,13 +33,11 @@ private:
     std::atomic<bool> poll_running_;
     std::unique_ptr<DiscordWebhook> webhook_;
     std::unique_ptr<DiscordBot> discord_bot_;
-    std::unique_ptr<HttpServer> http_server_;
     std::thread bridge_thread_;
     std::thread poll_thread_;
 
     void BridgeThread();
     void PollThread();
-    static std::string HandleDiscordMessage(const std::string& body);
 
     static constexpr const char* VERSION = "4.0.1";
     static constexpr const char* NAME = "PalworldDiscordPlugin";

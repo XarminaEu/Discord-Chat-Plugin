@@ -176,7 +176,6 @@ static void InitializePlugin(HMODULE hModule) {
     PrintToConsole("[" + product + "] [OK] Plugin initialized successfully");
     PrintToConsole("[" + product + "] [OK] ConsoleReader: Active (reading console buffer)");
     PrintToConsole("[" + product + "] [OK] Discord Webhook: " + std::string(g_config.GetWebhookUrl().empty() ? "Not configured" : "Configured"));
-    PrintToConsole("[" + product + "] [OK] HTTP Server: " + g_config.GetHttpBind() + ":" + std::to_string(g_config.GetHttpPort()));
     PrintToConsole("[" + product + "] [OK] Logging: " + g_config.GetLogFile());
     PrintToConsole("================================================================================");
     PrintToConsole("[" + product + "] Plugin loaded and ready!");
@@ -185,7 +184,6 @@ static void InitializePlugin(HMODULE hModule) {
     g_logger.Info("Plugin loaded and ready!");
     g_logger.Info("ConsoleReader: Active (reading console buffer)");
     g_logger.Info("Discord Webhook: " + std::string(g_config.GetWebhookUrl().empty() ? "Not configured" : "Configured"));
-    g_logger.Info("HTTP Server: " + g_config.GetHttpBind() + ":" + std::to_string(g_config.GetHttpPort()));
     g_logger.Info("================================================================================");
 }
 

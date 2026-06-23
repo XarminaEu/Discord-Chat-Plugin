@@ -8,8 +8,7 @@ A native C++ DLL server plugin for **Palworld** that bridges the in-game chat wi
 ## Features
 
 - **Game Chat → Discord**: Player messages are forwarded to a Discord webhook.
-- **Discord → Game Chat**: Discord messages are injected into the Palworld chat.
-- **HTTP API**: Built-in HTTP server with endpoints for Discord messages and copyright/key verification.
+- **Discord → Game Chat**: Discord messages are injected into the Palworld chat via the file bridge.
 - **Webhook Integration**: Sends rich embeds for chat, join, leave and death events.
 - **UE4SS Lua Bridge**: Ships with a Lua mod for in-game chat hooking without recompiling UE4SS.
 - **Logging**: Detailed logging to console and `PalworldDiscordPlugin.log`.
@@ -84,8 +83,6 @@ Edit `config.json` next to the DLL:
   "plugin": {
     "debug_mode": true,
     "log_file": "PalworldDiscordPlugin.log",
-    "http_port": 8765,
-    "http_bind": "127.0.0.1",
     "max_message_length": 2000,
     "api_key": "b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717"
   },
@@ -104,28 +101,6 @@ Edit `config.json` next to the DLL:
 ```
 
 > ⚠️ **Do not change the `api_key` value.** The plugin compares it against an encrypted hardcoded key at startup and will refuse to load if it does not match.
-
-## HTTP API Endpoints
-
-The plugin listens on the configured host and port (default `127.0.0.1:8765`).
-
-### `POST /discord/message`
-
-Receives a Discord message and forwards it to the game chat.
-
-```json
-{
-  "author": "DiscordUser",
-  "content": "Hello from Discord",
-  "timestamp": 1718520240
-}
-```
-
-Response:
-
-```json
-{ "status": "ok", "message": "Message sent to chat" }
-```
 
 ## Remote Copyright Check
 
@@ -188,6 +163,7 @@ PalworldDiscordPlugin/
 - Keep your Discord webhook URL and bot token secret.
 - The `api_key` in `config.json` must match the encrypted hardcoded value.
 - Copyright and product name strings are XOR-obfuscated in the source and binary.
+- The generator script that produced the encrypted byte arrays is not part of the public repository.
 - The obfuscation raises the bar for casual tampering but cannot stop a determined reverse engineer.
 
 ## Logging

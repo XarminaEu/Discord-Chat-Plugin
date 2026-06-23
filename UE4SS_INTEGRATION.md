@@ -115,8 +115,6 @@ Lege eine `config.json` im Spiel-Root (`Pal/Binaries/Win64/`) ab:
   "plugin": {
     "debug_mode": true,
     "log_file": "PalworldDiscordPlugin.log",
-    "http_port": 8765,
-    "http_bind": "127.0.0.1",
     "api_key": ""
   },
   "bridge": {
@@ -148,7 +146,7 @@ mit dem **UE4SS Live View** heraus:
   `[PalworldDiscordBridge] DLL geladen...`
   und `[PalworldDiscordBridge] Hook registriert...`.
 - Schreibe im Spiel-Chat → Nachricht erscheint in Discord.
-- Sende vom Bot eine HTTP-POST an `http://server-ip:8765/discord/message` →
+- Schreibe vom Discord Bot in `bridge_in.txt` (Format: `discord|Autor|Nachricht`) →
   Nachricht erscheint im Spiel-Chat mit `[Discord]`-Prefix.
 
 ---
@@ -227,8 +225,5 @@ Pal/Binaries/Win64/ue4ss/Mods/PalworldDiscordPlugin/
 - Bei Palworld-Updates können sich Funktions-/Property-Namen ändern → dann
   die `chat_function_hint` in `main.lua` (Option A) bzw. `config.json`
   (Option B) aktualisieren.
-- Der HTTP-Server bindet standardmäßig auf `127.0.0.1:8765`. Prüfe mit
-  `netsh interface ipv4 show excludedportrange protocol=tcp`, ob der Port frei
-  ist; sonst in `config.json` ändern.
 - **Webhook-URLs sind Geheimnisse**. Teile sie nicht und speichere sie nicht
   unverschlüsselt in öffentlichen Repositories.

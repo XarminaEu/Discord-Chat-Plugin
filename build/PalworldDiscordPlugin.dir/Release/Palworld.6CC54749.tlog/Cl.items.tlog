@@ -5,7 +5,6 @@ D:\Palworld\PalworldDiscordPlugin\src\discord_bot.cpp;D:\Palworld\PalworldDiscor
 D:\Palworld\PalworldDiscordPlugin\src\config.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\config.obj
 D:\Palworld\PalworldDiscordPlugin\src\logger.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\logger.obj
 D:\Palworld\PalworldDiscordPlugin\src\install.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\install.obj
-D:\Palworld\PalworldDiscordPlugin\src\http_server.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\http_server.obj
 D:\Palworld\PalworldDiscordPlugin\src\http_client.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\http_client.obj
 D:\Palworld\PalworldDiscordPlugin\src\copyright_crypto.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\copyright_crypto.obj
 D:\Palworld\PalworldDiscordPlugin\src\chat_hook.cpp;D:\Palworld\PalworldDiscordPlugin\build\PalworldDiscordPlugin.dir\Release\chat_hook.obj

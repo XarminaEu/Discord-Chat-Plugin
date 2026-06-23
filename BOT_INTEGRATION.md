@@ -1,5 +1,7 @@
 # Discord Bot - Plugin Integration Guide
 
+> **Hinweis:** Ab Version 4.0.1 startet das Plugin **keinen HTTP-Server** mehr. Discord → Palworld läuft jetzt ausschließlich über die Datei-Bridge (`PalDiscordBridge_in.txt` / konfigurierbar in `config.json` unter `bridge.incoming_file`). Der Bot muss direkt in diese Datei schreiben (z.B. über Netzwerk-Freigabe oder wenn er auf demselben Server läuft). Die HTTP-Endpoint-Beispiele unten sind nicht mehr gültig.
+
 ## Übersicht
 Dein bestehendes Discord Bot muss erweitert werden, um Nachrichten an das Palworld-Plugin zu senden.
 
@@ -12,47 +14,27 @@ Discord Channel
        ↓
    Bot (dein Projekt)
        ↓
-   HTTP POST Request
+Schreibt in bridge_in.txt
        ↓
-Plugin HTTP-Endpoint (Port 8765)
+UE4SS Lua Mod liest Datei
        ↓
 Palworld Chat
 ```
 
 ---
 
-## Plugin-Seite: HTTP-Endpoint
+## Plugin-Seite: Datei-Bridge
 
-**Endpoint:** `http://localhost:8765/discord/message`
+**Eingehende Datei:** `PalDiscordBridge_in.txt` (oder konfigurierbar in `config.json` unter `bridge.incoming_file`)
 
-**Methode:** `POST`
+**Format pro Zeile:** `discord|Autor|Nachricht`
 
-**Content-Type:** `application/json`
-
-**Request-Body:**
-```json
-{
-  "author": "DiscordUsername",
-  "content": "Deine Nachricht hier",
-  "timestamp": 1718520240
-}
+**Beispiel:**
+```
+discord|TestUser|Hello Palworld
 ```
 
-**Response (Success):**
-```json
-{
-  "status": "ok",
-  "message": "Message sent to chat"
-}
-```
-
-**Response (Error):**
-```json
-{
-  "status": "error",
-  "message": "Error description"
-}
-```
+Das Plugin (bzw. die UE4SS Lua Bridge) liest diese Datei und gibt die Nachricht im Spiel-Chat aus.
 
 ---
 
@@ -62,13 +44,12 @@ Palworld Chat
 
 ```python
 import discord
-import aiohttp
 from discord.ext import commands
 
 class DiscordPalworldBridge(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.plugin_url = "http://localhost:8765/discord/message"
+        self.bridge_file = r"C:\Pfad\zu\Palworld\Binaries\Win64\PalDiscordBridge_in.txt"
         self.channel_id = 123456789  # Dein Channel
     
     @commands.Cog.listener()
@@ -81,27 +62,16 @@ class DiscordPalworldBridge(commands.Cog):
         if message.channel.id != self.channel_id:
             return
         
-        # Sende an Plugin
+        # Sende an Plugin über Datei-Bridge
         await self.send_to_palworld(message)
     
     async def send_to_palworld(self, message):
-        payload = {
-            "author": message.author.name,
-            "content": message.content,
-            "timestamp": int(message.created_at.timestamp())
-        }
-        
+        line = f"discord|{message.author.name}|{message.content}\n"
         try:
-            async with aiohttp.ClientSession() as session:
-                async with session.post(
-                    self.plugin_url,
-                    json=payload,
-                    timeout=aiohttp.ClientTimeout(total=5)
-                ) as resp:
-                    if resp.status != 200:
-                        print(f"Plugin error: {await resp.text()}")
+            with open(self.bridge_file, "a", encoding="utf-8") as f:
+                f.write(line)
         except Exception as e:
-            print(f"Failed to send message to Palworld: {e}")
+            print(f"Failed to write to Palworld bridge: {e}")
 
 async def setup(bot):
     await bot.add_cog(DiscordPalworldBridge(bot))
@@ -111,9 +81,9 @@ async def setup(bot):
 
 ```javascript
 const { Client, Events, ChannelType } = require('discord.js');
-const axios = require('axios');
+const fs = require('fs');
 
-const PLUGIN_URL = 'http://localhost:8765/discord/message';
+const BRIDGE_FILE = 'C:\\Pfad\\zu\\Palworld\\Binaries\\Win64\\PalDiscordBridge_in.txt';
 const CHANNEL_ID = '123456789'; // Dein Channel
 
 client.on(Events.MessageCreate, async (message) => {
@@ -123,24 +93,17 @@ client.on(Events.MessageCreate, async (message) => {
     // Nur im konfigurierten Channel
     if (message.channelId !== CHANNEL_ID) return;
     
-    // Sende an Plugin
+    // Sende an Plugin über Datei-Bridge
     await sendToPalworld(message);
 });
 
 async function sendToPalworld(message) {
-    const payload = {
-        author: message.author.username,
-        content: message.content,
-        timestamp: Math.floor(message.createdTimestamp / 1000)
-    };
-    
+    const line = `discord|${message.author.username}|${message.content}\n`;
     try {
-        const response = await axios.post(PLUGIN_URL, payload, {
-            timeout: 5000
-        });
-        console.log('Message sent to Palworld:', response.data);
+        fs.appendFileSync(BRIDGE_FILE, line, 'utf8');
+        console.log('Message written to Palworld bridge');
     } catch (error) {
-        console.error('Failed to send message to Palworld:', error.message);
+        console.error('Failed to write to Palworld bridge:', error.message);
     }
 }
 ```
@@ -153,96 +116,70 @@ async function sendToPalworld(message) {
 ```json
 {
   "discord": {
-    "webhook_url": "https://discord.com/api/webhooks/...",
-    "bot_token": "NICHT NÖTIG - wird vom externen Bot genutzt"
+    "webhook_url": "https://discord.com/api/webhooks/..."
   },
   "plugin": {
     "debug_mode": true,
-    "log_file": "PalworldDiscordPlugin.log",
-    "http_port": 8765,
-    "http_bind": "127.0.0.1"
+    "log_file": "PalworldDiscordPlugin.log"
+  },
+  "bridge": {
+    "enabled": true,
+    "incoming_file": "PalDiscordBridge_in.txt"
   }
 }
 ```
 
 ### Bot-Seite
 Konfiguriere in deinem Bot-Projekt:
-- `PLUGIN_URL = "http://localhost:8765/discord/message"`
+- `BRIDGE_FILE = "Pfad/zu/PalDiscordBridge_in.txt"`
 - `CHANNEL_ID = "dein-channel-id"`
 
 ---
 
 ## Sicherheit
 
-### Authentifizierung (Optional)
-Für zusätzliche Sicherheit kann ein API-Key hinzugefügt werden:
+### Datei-Bridge
+- Stelle sicher, dass nur der Discord Bot (oder vertraute Prozesse) Schreibzugriff auf die eingehende Bridge-Datei haben.
+- Betreibe den Bot möglichst auf demselben Server wie Palworld, um Netzwerk-Freigaben zu vermeiden.
 
-**Request mit API-Key:**
-```json
-{
-  "api_key": "your-secret-key",
-  "author": "DiscordUsername",
-  "content": "Nachricht",
-  "timestamp": 1718520240
-}
-```
-
-**Plugin-Config:**
-```json
-{
-  "plugin": {
-    "api_key": "your-secret-key"
-  }
-}
-```
-
-### Firewall
-- Endpoint nur auf `127.0.0.1` binden (localhost)
-- Nur lokale Verbindungen erlauben
-- Falls Bot auf anderem Server: IP-Whitelist nutzen
+### API-Key
+Der Plugin-Start selbst wird durch den hartcodierten API-Key und den Remote-Check bei `rl-dev.de` geschützt. Der Bot benötigt keinen eigenen API-Key für die Datei-Bridge.
 
 ---
 
 ## Testing
 
-### Mit cURL testen
-```bash
-curl -X POST http://localhost:8765/discord/message \
-  -H "Content-Type: application/json" \
-  -d '{"author":"TestUser","content":"Hello Palworld","timestamp":1718520240}'
+### Datei-Bridge testen
+Schreibe eine Zeile in die eingehende Bridge-Datei:
+
+```powershell
+Add-Content -Path "PalDiscordBridge_in.txt" -Value "discord|TestUser|Hello Palworld"
 ```
+
+Die Nachricht sollte kurz darauf im Spiel-Chat erscheinen.
 
 ### Mit Python testen
 ```python
-import requests
-
-response = requests.post(
-    'http://localhost:8765/discord/message',
-    json={
-        'author': 'TestUser',
-        'content': 'Hello Palworld',
-        'timestamp': 1718520240
-    }
-)
-print(response.json())
+bridge_path = r"C:\Pfad\zu\Palworld\Binaries\Win64\PalDiscordBridge_in.txt"
+with open(bridge_path, "a", encoding="utf-8") as f:
+    f.write("discord|TestUser|Hello Palworld\n")
 ```
 
 ---
 
 ## Fehlerbehandlung
 
-| Error | Ursache | Lösung |
-|-------|--------|--------|
-| Connection refused | Plugin nicht gestartet | Plugin starten |
-| Timeout | Plugin antwortet nicht | Plugin-Logs prüfen |
-| 400 Bad Request | Ungültiges JSON-Format | Payload-Format überprüfen |
-| 401 Unauthorized | API-Key falsch | API-Key in Config überprüfen |
+| Problem | Ursache | Lösung |
+|---------|--------|--------|
+| Nachricht erscheint nicht im Chat | Bridge-Datei wird nicht gelesen | Pfad in `config.json` prüfen; Datei muss im Palworld-Arbeitsverzeichnis liegen |
+| Berechtigungsfehler | Bot darf nicht in Datei schreiben | Schreibberechtigungen prüfen |
+| Plugin startet nicht | API-Key oder Remote-Check fehlgeschlagen | Logs prüfen; `rl-dev.de/api/copyright-check` muss erreichbar sein |
 
 ---
 
 ## Nächste Schritte
 
-1. **Plugin entwickeln** mit HTTP-Endpoint
-2. **Bot erweitern** mit obigem Code
-3. **Testen** mit cURL
+1. **Plugin bauen** und in Palworld einbinden
+2. **Bot erweitern**, sodass er in `bridge_in.txt` schreibt
+3. **Testen** durch Schreiben in die Bridge-Datei
 4. **Deployment** auf Server

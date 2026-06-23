@@ -44,8 +44,6 @@ bool Config::LoadFromFile(const std::string& filepath) {
         if (plugin.is_object()) {
             debug_mode_ = plugin.get_bool("debug_mode", debug_mode_);
             log_file_ = plugin.get_string("log_file", log_file_);
-            http_port_ = plugin.get_int("http_port", http_port_);
-            http_bind_ = plugin.get_string("http_bind", http_bind_);
             max_message_length_ = plugin.get_int("max_message_length", max_message_length_);
             api_key_ = plugin.get_string("api_key", api_key_);
         }
@@ -105,8 +103,6 @@ bool Config::SaveToFile(const std::string& filepath) const {
     Json plugin = Json::MakeObject();
     plugin["debug_mode"] = debug_mode_;
     plugin["log_file"] = log_file_;
-    plugin["http_port"] = http_port_;
-    plugin["http_bind"] = http_bind_;
     plugin["max_message_length"] = max_message_length_;
     plugin["api_key"] = api_key_;
     root["plugin"] = plugin;
@@ -166,14 +162,6 @@ bool Config::IsDiscordToGameEnabled() const {
 
 int Config::GetPollInterval() const {
     return poll_interval_;
-}
-
-int Config::GetHttpPort() const {
-    return http_port_;
-}
-
-std::string Config::GetHttpBind() const {
-    return http_bind_;
 }
 
 bool Config::IsDebugMode() const {
@@ -244,10 +232,6 @@ void Config::SetWebhookUrl(const std::string& url) {
     webhook_url_ = url;
 }
 
-void Config::SetHttpPort(int port) {
-    http_port_ = port;
-}
-
 void Config::SetDebugMode(bool debug) {
     debug_mode_ = debug;
 }
@@ -259,8 +243,6 @@ void Config::SetDefaults() {
     channel_id_ = "";
     bot_name_ = "Server Chat";
     language_ = "en";
-    http_port_ = 8765;
-    http_bind_ = "127.0.0.1";
     debug_mode_ = false;
     log_file_ = "PalworldDiscordPlugin.log";
     max_message_length_ = 2000;

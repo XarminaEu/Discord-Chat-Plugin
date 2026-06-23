@@ -12,7 +12,6 @@
 [PalworldDiscordPlugin] Debug mode ENABLED
 [PalworldDiscordPlugin] Initializing core systems...
 [PalworldDiscordPlugin] ✓ Plugin initialized successfully
-[PalworldDiscordPlugin] ✓ HTTP Server: 127.0.0.1:8765
 [PalworldDiscordPlugin] ✓ Chat Hook: Active
 [PalworldDiscordPlugin] ✓ Discord Webhook: Configured
 [PalworldDiscordPlugin] ✓ Logging: PalworldDiscordPlugin.log
@@ -39,14 +38,12 @@
 [2024-06-16 07:15:23.459] [INFO] Config loaded from config.json
 [2024-06-16 07:15:23.460] [INFO] Initializing core systems...
 [2024-06-16 07:15:23.461] [INFO] Plugin loaded and ready!
-[2024-06-16 07:15:23.462] [INFO] HTTP Server: 127.0.0.1:8765
 [2024-06-16 07:15:23.463] [INFO] Chat Hook: Active
 [2024-06-16 07:15:23.464] [INFO] Discord Webhook: Configured
 [2024-06-16 07:15:23.465] [INFO] ================================================================================
 [2024-06-16 07:15:45.123] [DEBUG] Broadcasting message: PlayerName: Hello World
 [2024-06-16 07:15:45.124] [INFO] Message sent to Discord webhook
-[2024-06-16 07:16:12.456] [DEBUG] HTTP request received from Discord bot
-[2024-06-16 07:16:12.457] [DEBUG] Message from Discord: TestBot: Hello from Discord
+[2024-06-16 07:16:12.456] [DEBUG] Bridge file read: discord|TestBot|Hello from Discord
 [2024-06-16 07:16:12.458] [INFO] Broadcasting Discord message to game chat
 [2024-06-16 07:16:30.789] [WARNING] Failed to send message to Discord webhook
 [2024-06-16 07:16:30.790] [ERROR] CURL error: Connection timeout

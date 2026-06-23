@@ -5,7 +5,6 @@ D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/dis
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/config.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/logger.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/install.obj
-D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/http_server.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/http_client.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/copyright_crypto.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/chat_hook.obj

@@ -1,5 +1,6 @@
 # Runtime test for PalworldDiscordPlugin
-# Loads the DLL (which starts the HTTP server) and POSTs a test message to the endpoint.
+# Loads the DLL via StartBridge and verifies the file bridge works.
+# The plugin does NOT start an HTTP server.
 
 $ErrorActionPreference = "Stop"
 
@@ -15,10 +16,10 @@ if (-not (Test-Path $dll)) {
     exit 1
 }
 
-# Place config.json in the test working directory (DllMain loads it from CWD)
+# Place config.json in the test working directory
 Copy-Item (Join-Path $testDir "test_config.json") (Join-Path $testDir "config.json") -Force
 
-# Clean any leftover bridge files from a previous run
+# Clean any leftover bridge files and logs from a previous run
 Remove-Item (Join-Path $testDir "bridge_in.txt") -ErrorAction SilentlyContinue
 Remove-Item (Join-Path $testDir "bridge_out.txt") -ErrorAction SilentlyContinue
 Remove-Item (Join-Path $testDir "PalworldDiscordPlugin_test.log") -ErrorAction SilentlyContinue
@@ -26,7 +27,7 @@ Remove-Item (Join-Path $testDir "PalworldDiscordPlugin_test.log") -ErrorAction S
 Push-Location $testDir
 [System.Environment]::CurrentDirectory = $testDir
 
-# P/Invoke LoadLibrary / FreeLibrary
+# P/Invoke LoadLibrary / GetProcAddress / FreeLibrary
 Add-Type @"
 using System;
 using System.Runtime.InteropServices;
@@ -37,8 +38,6 @@ public static class Native {
     public static extern bool FreeLibrary(IntPtr hModule);
     [DllImport("kernel32.dll", SetLastError=true, CharSet=CharSet.Ansi)]
     public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
-    [DllImport("kernel32.dll", SetLastError=true)]
-    public static extern int GetLastError();
 }
 public delegate int StartBridgeDelegate(IntPtr arg);
 "@
@@ -46,7 +45,7 @@ public delegate int StartBridgeDelegate(IntPtr arg);
 Write-Host "[*] Loading plugin DLL..." -ForegroundColor Cyan
 $h = [Native]::LoadLibrary($dll)
 if ($h -eq [IntPtr]::Zero) {
-    Write-Host "ERROR: LoadLibrary failed (error $([System.Runtime.InteropServices.Marshal]::GetLastWin32Error()))" -ForegroundColor Red
+    Write-Host "ERROR: LoadLibrary failed" -ForegroundColor Red
     Pop-Location
     exit 1
 }
@@ -63,98 +62,76 @@ Write-Host "[*] Calling StartBridge export..." -ForegroundColor Cyan
 $startBridge = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer($proc, [StartBridgeDelegate])
 $startBridge.Invoke([IntPtr]::Zero) | Out-Null
 
-Write-Host "[*] DLL loaded (handle $h). Waiting for HTTP server..." -ForegroundColor Green
-Start-Sleep -Seconds 3
-
-# Bypass any system proxy for localhost requests
-[System.Net.WebRequest]::DefaultWebProxy = $null
+Write-Host "[*] Waiting for plugin to initialize..." -ForegroundColor Green
+Start-Sleep -Seconds 2
 
 $pass = $true
 
-# Test 1: valid message
+# Test 1: Verify the plugin started successfully (no HTTP server, but file bridge active)
 try {
-    $body = '{"author":"Tester","content":"Hello from Discord"}'
-    $resp = Invoke-RestMethod -Uri "http://127.0.0.1:9876/discord/message" -Method Post -Body $body -ContentType "application/json" -TimeoutSec 5
-    Write-Host "[Test 1] Valid message -> $($resp | ConvertTo-Json -Compress)" -ForegroundColor Green
-    if ($resp.status -ne "ok") { $pass = $false; Write-Host "  FAILED: expected status ok" -ForegroundColor Red }
+    $logFile = Join-Path $testDir "PalworldDiscordPlugin_test.log"
+    if (Test-Path $logFile) {
+        $log = Get-Content $logFile -Raw
+        if ($log -match "Plugin loaded and ready") {
+            Write-Host "[Test 1] Plugin initialized successfully" -ForegroundColor Green
+        } else {
+            $pass = $false
+            Write-Host "[Test 1] FAILED: plugin did not report ready" -ForegroundColor Red
+        }
+    } else {
+        $pass = $false
+        Write-Host "[Test 1] FAILED: log file not found" -ForegroundColor Red
+    }
 } catch {
     $pass = $false
     Write-Host "[Test 1] FAILED: $_" -ForegroundColor Red
 }
 
-# Test 2: missing content
-try {
-    $body = '{"author":"Tester"}'
-    $resp = Invoke-RestMethod -Uri "http://127.0.0.1:9876/discord/message" -Method Post -Body $body -ContentType "application/json" -TimeoutSec 5
-    Write-Host "[Test 2] Missing content -> $($resp | ConvertTo-Json -Compress)" -ForegroundColor Green
-    if ($resp.status -ne "error") { $pass = $false; Write-Host "  FAILED: expected status error" -ForegroundColor Red }
-} catch {
-    $pass = $false
-    Write-Host "[Test 2] FAILED: $_" -ForegroundColor Red
-}
-
-# Test 3: invalid JSON
-try {
-    $body = 'not json at all'
-    $resp = Invoke-RestMethod -Uri "http://127.0.0.1:9876/discord/message" -Method Post -Body $body -ContentType "application/json" -TimeoutSec 5
-    Write-Host "[Test 3] Invalid JSON -> $($resp | ConvertTo-Json -Compress)" -ForegroundColor Green
-    if ($resp.status -ne "error") { $pass = $false; Write-Host "  FAILED: expected status error" -ForegroundColor Red }
-} catch {
-    $pass = $false
-    Write-Host "[Test 3] FAILED: $_" -ForegroundColor Red
-}
-
-# Test 4: Discord -> game wrote to the incoming bridge file (from Test 1)
-try {
-    Start-Sleep -Milliseconds 300
-    $inFile = Join-Path $testDir "bridge_in.txt"
-    $content = if (Test-Path $inFile) { Get-Content $inFile -Raw } else { "" }
-    if ($content -match "discord\|Tester\|Hello from Discord") {
-        Write-Host "[Test 4] Bridge incoming file written correctly" -ForegroundColor Green
-    } else {
-        $pass = $false
-        Write-Host "[Test 4] FAILED: bridge_in.txt missing expected line. Got: '$content'" -ForegroundColor Red
-    }
-} catch {
-    $pass = $false
-    Write-Host "[Test 4] FAILED: $_" -ForegroundColor Red
-}
-
-# Test 5: game -> Discord: writing to outgoing bridge file triggers OnGameChatMessage
+# Test 2: game -> Discord: writing to outgoing bridge file triggers OnGameChatMessage
 try {
     $outFile = Join-Path $testDir "bridge_out.txt"
     "chat|Alice|Hi from game" | Out-File -FilePath $outFile -Append -Encoding ascii
     # Wait for FileBridge watcher poll (500ms interval) + processing
     Start-Sleep -Milliseconds 1200
-    # The log line "Game chat: Alice: Hi from game" should be visible.
-    # We verify it after DLL unload when the log file handle is closed.
-    $gameChatFound = $true
 } catch {
     $pass = $false
-    Write-Host "[Test 5] FAILED: $_" -ForegroundColor Red
+    Write-Host "[Test 2] FAILED: $_" -ForegroundColor Red
 }
 
 Write-Host "[*] Unloading DLL..." -ForegroundColor Cyan
 [Native]::FreeLibrary($h) | Out-Null
 
-# Now the logger has closed the file; verify Test 5 log line.
+# Now the logger has closed the file; verify Test 2 log line.
 try {
     $logFile = Join-Path $testDir "PalworldDiscordPlugin_test.log"
     if (Test-Path $logFile) {
         $log = Get-Content $logFile -Raw
         if ($log -match "Game chat: Alice: Hi from game") {
-            Write-Host "[Test 5] Outgoing bridge line forwarded to game-chat handler" -ForegroundColor Green
+            Write-Host "[Test 2] Outgoing bridge file forwarded to game-chat handler" -ForegroundColor Green
         } else {
             $pass = $false
-            Write-Host "[Test 5] FAILED: log missing 'Game chat: Alice: Hi from game'" -ForegroundColor Red
+            Write-Host "[Test 2] FAILED: log missing 'Game chat: Alice: Hi from game'" -ForegroundColor Red
         }
     } else {
         $pass = $false
-        Write-Host "[Test 5] FAILED: log file not found at $logFile" -ForegroundColor Red
+        Write-Host "[Test 2] FAILED: log file not found at $logFile" -ForegroundColor Red
     }
 } catch {
     $pass = $false
-    Write-Host "[Test 5] FAILED: $_" -ForegroundColor Red
+    Write-Host "[Test 2] FAILED: $_" -ForegroundColor Red
+}
+
+# Test 3: Verify HTTP server is NOT running
+try {
+    $tcp = New-Object System.Net.Sockets.TcpClient
+    $tcp.Connect("127.0.0.1", 9876)
+    if ($tcp.Connected) {
+        $tcp.Close()
+        $pass = $false
+        Write-Host "[Test 3] FAILED: HTTP server is still listening on port 9876" -ForegroundColor Red
+    }
+} catch {
+    Write-Host "[Test 3] HTTP server is not running (port 9876 closed)" -ForegroundColor Green
 }
 
 Pop-Location

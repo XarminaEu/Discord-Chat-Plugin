@@ -73,10 +73,10 @@ Reines C++ DLL-Server-Plugin für Palworld, das Chat-Nachrichten bidirektional m
 **HINWEIS:** Discord Bot wird extern erweitert (nicht Teil dieses Plugins)
 
 - [ ] **4.1** Bot-zu-Plugin Kommunikation (Plugin-Seite)
-  - HTTP-Endpoint im Plugin (Port 8765)
-  - POST-Request Handler für Discord-Nachrichten
-  - JSON-Payload-Parsing
-  
+  - Eingehende Datei-Bridge (`bridge_in.txt`)
+  - Zeilenformat: `discord|Autor|Nachricht`
+  - Lua-Mod liest Datei und broadcastet im Spiel-Chat
+
 - [ ] **4.2** Chat-Broadcast im Spiel
   - Nachrichten in Palworld-Chat einfügen
   - Format: `[Discord] Benutzername: Nachricht`
@@ -84,8 +84,8 @@ Reines C++ DLL-Server-Plugin für Palworld, das Chat-Nachrichten bidirektional m
   
 - [ ] **4.3** Bot-Erweiterung (EXTERN - dein bestehendes Projekt)
   - Message-Listener im konfigurierten Channel
-  - POST-Request an Plugin-Endpoint senden
-  - Format: `{"author": "username", "content": "message"}`
+  - Schreibe Zeile in `bridge_in.txt`
+  - Format: `discord|username|message`
 
 ---
 

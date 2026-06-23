@@ -3,8 +3,6 @@
 #include "discord_webhook.h"
 #include "discord_bot.h"
 #include "config.h"
-#include "http_server.h"
-#include "json.h"
 #include <filesystem>
 
 #include <memory>
@@ -14,8 +12,6 @@
 #include <fstream>
 #include <vector>
 #include <windows.h>
-
-using pjson::Json;
 
 PalworldDiscordPlugin::PalworldDiscordPlugin() : initialized_(false), bridge_running_(false), poll_running_(false) {
 }
@@ -70,53 +66,9 @@ bool PalworldDiscordPlugin::Initialize() {
         g_logger.Info("Discord bot polling disabled (set discord_to_game + bot_token + channel_id to enable)");
     }
 
-    // Start HTTP server for Discord->Game messages
-    http_server_ = std::make_unique<HttpServer>(g_config.GetHttpBind(), g_config.GetHttpPort());
-    http_server_->RegisterHandler("POST", "/discord/message",
-        [](const HttpRequest& req) { return PalworldDiscordPlugin::HandleDiscordMessage(req.body); });
-    if (!http_server_->Start()) {
-        g_logger.Critical("Failed to start HTTP server");
-        return false;
-    }
-    g_logger.Info("HTTP server started on " + g_config.GetHttpBind() + ":" + std::to_string(g_config.GetHttpPort()));
-
     initialized_ = true;
     g_logger.Info("PalworldDiscordPlugin initialized successfully");
     return true;
-}
-
-static std::string FindIncomingBridgeFile();
-
-std::string PalworldDiscordPlugin::HandleDiscordMessage(const std::string& body) {
-    if (body.empty()) {
-        return "{\"status\":\"error\",\"message\":\"empty body\"}";
-    }
-    try {
-        Json root = Json::parse(body);
-        std::string author = root.get_string("author", "");
-        std::string content = root.get_string("content", "");
-        if (author.empty() || content.empty()) {
-            return "{\"status\":\"error\",\"message\":\"missing author or content\"}";
-        }
-
-        std::string incoming_file = g_config.GetBridgeIncomingFile();
-        if (incoming_file.empty()) {
-            incoming_file = FindIncomingBridgeFile();
-        }
-        std::ofstream f(incoming_file, std::ios::app);
-        if (f.is_open()) {
-            f << "discord|" << author << "|" << content << "\n";
-            f.close();
-            g_logger.Info("Discord->Game: [" + author + "]: " + content);
-            return "{\"status\":\"ok\",\"message\":\"Message sent to chat\"}";
-        } else {
-            g_logger.Warning("Cannot write incoming bridge file");
-            return "{\"status\":\"error\",\"message\":\"cannot write bridge file\"}";
-        }
-    } catch (const std::exception& e) {
-        g_logger.Error("Failed to parse Discord message JSON: " + std::string(e.what()));
-        return "{\"status\":\"error\",\"message\":\"invalid json\"}";
-    }
 }
 
 static std::string FindBridgeFile() {
@@ -308,11 +260,6 @@ void PalworldDiscordPlugin::Shutdown() {
     }
     if (poll_thread_.joinable()) {
         poll_thread_.join();
-    }
-
-    if (http_server_) {
-        http_server_->Stop();
-        http_server_.reset();
     }
 
     webhook_.reset();

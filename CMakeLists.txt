@@ -35,7 +35,6 @@ set(SOURCES
     src/config.cpp
     src/logger.cpp
     src/install.cpp
-    src/http_server.cpp
     src/http_client.cpp
     src/copyright_crypto.cpp
     src/chat_hook.cpp
@@ -55,7 +54,6 @@ set(HEADERS
     include/logger.h
     include/json.h
     include/install.h
-    include/http_server.h
     include/http_client.h
     include/copyright_crypto.h
     include/chat_hook.h

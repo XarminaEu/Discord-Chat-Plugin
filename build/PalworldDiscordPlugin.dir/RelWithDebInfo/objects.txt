@@ -5,7 +5,6 @@ D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/config.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/logger.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/install.obj
-D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/http_server.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/http_client.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/copyright_crypto.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/RelWithDebInfo/chat_hook.obj

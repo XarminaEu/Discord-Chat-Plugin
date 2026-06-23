@@ -21,8 +21,6 @@ public:
     int GetPollInterval() const;
 
     // Plugin settings
-    int GetHttpPort() const;
-    std::string GetHttpBind() const;
     bool IsDebugMode() const;
     std::string GetLogFile() const;
     int GetMaxMessageLength() const;
@@ -48,7 +46,6 @@ public:
 
     // Setters
     void SetWebhookUrl(const std::string& url);
-    void SetHttpPort(int port);
     void SetDebugMode(bool debug);
 
 private:
@@ -58,8 +55,6 @@ private:
     std::string channel_id_;
     std::string bot_name_;
     std::string language_;
-    int http_port_;
-    std::string http_bind_;
     bool debug_mode_;
     std::string log_file_;
     int max_message_length_;

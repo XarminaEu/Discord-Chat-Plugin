@@ -20,4 +20,8 @@ SCHRITTE:
 DISCORD WEBHOOK TEST:
 - Setze die URL in config.json
 - Schreibe im Spiel-Chat -> Discord erhaelt die Nachricht
-- POST an http://server-ip:8765/discord/message -> Spiel erhaelt Nachricht
+
+DISCORD -> SPIEL TEST:
+- Schreibe in die Datei PalDiscordBridge_in.txt (im Win64-Ordner):
+  discord|TestUser|Hello Palworld
+- Nachricht erscheint im Spiel-Chat
