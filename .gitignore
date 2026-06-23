@@ -9,3 +9,8 @@ ue4ss/build/
 
 # Note: build artifacts, DLLs, logs, old release zips and config.json are
 # intentionally NOT ignored so they can be committed/published as requested.
+
+# Generator tool: contains plaintext secrets. The generated encrypted bytes are
+# hardcoded in src/copyright_crypto.cpp; the generator itself must not be public.
+tools/gen_crypto.py
+tools/gen_crypto_output.txt

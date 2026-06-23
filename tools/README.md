@@ -4,4 +4,8 @@
 
 Änderungen an Dateien in diesem Ordner können dazu führen, dass das Plugin nicht mehr startet oder der API-Key-/Copyright-Schutz ungültig wird.
 
-Nur für Entwickler: `gen_crypto.py` generiert die XOR-verschlüsselten Byte-Arrays, die in `src/copyright_crypto.cpp` eingebaut werden.
+## Hinweis zur Sicherheit
+
+Das Generator-Skript `gen_crypto.py` ist **nicht** Teil des öffentlichen Repositories. Es wurde einmalig verwendet, um die XOR-verschlüsselten Byte-Arrays zu erzeugen, die jetzt **hartcodiert** in `src/copyright_crypto.cpp` eingebaut sind.
+
+Das Skript enthält die Klartext-Versionen von API-Key, Copyright, Produktname und externer URL und darf nicht veröffentlicht oder an Benutzer weitergegeben werden.
