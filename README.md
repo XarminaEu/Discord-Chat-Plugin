@@ -87,7 +87,7 @@ Edit `config.json` next to the DLL:
     "http_port": 8765,
     "http_bind": "127.0.0.1",
     "max_message_length": 2000,
-    "api_key": "PalDiscordPlugin b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717"
+    "api_key": "b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717"
   },
   "ue4ss": {
     "chat_recv_function": "",
@@ -139,7 +139,7 @@ Payload:
 
 ```json
 {
-  "api_key": "PalDiscordPlugin b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717",
+  "api_key": "b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717",
   "program": "PalDiscordPlugin",
   "copyright": "PalDiscordPlugin\nCopyright 2026 RL-Dev.de"
 }

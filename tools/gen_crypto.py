@@ -4,7 +4,7 @@
 XOR_KEY = 0xA7
 
 strings = {
-    "kApiKey": "PalDiscordPlugin b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717",
+    "kApiKey": "b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717",
     "kApiKeyPrefix": "PalDiscordPlugin",
     "kCopyright": "PalDiscordPlugin\nCopyright 2026 RL-Dev.de",
     "kNonCommercial": "PalDiscordPlugin [NON-COMMERCIAL VERSION] - Free for personal/community servers only. Commercial use is prohibited.",
