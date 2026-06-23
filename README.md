@@ -12,7 +12,7 @@ A native C++ DLL server plugin for **Palworld** that bridges the in-game chat wi
 - **Webhook Integration**: Sends rich embeds for chat, join, leave and death events.
 - **UE4SS Lua Bridge**: Ships with a Lua mod for in-game chat hooking without recompiling UE4SS.
 - **Logging**: Detailed logging to console and `PalworldDiscordPlugin.log`.
-- **Copyright & Key Protection**: Hardcoded, obfuscated API key and copyright notice; the plugin refuses to start if the key is modified.
+- **Copyright & License Protection**: Hardcoded, obfuscated copyright and license values; the plugin refuses to start if protected values are modified.
 
 ## Requirements
 
@@ -83,8 +83,7 @@ Edit `config.json` next to the DLL:
   "plugin": {
     "debug_mode": true,
     "log_file": "PalworldDiscordPlugin.log",
-    "max_message_length": 2000,
-    "api_key": "b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717"
+    "max_message_length": 2000
   },
   "ue4ss": {
     "chat_recv_function": "",
@@ -100,7 +99,7 @@ Edit `config.json` next to the DLL:
 }
 ```
 
-> ⚠️ **Do not change the `api_key` value.** The plugin compares it against an encrypted hardcoded key at startup and will refuse to load if it does not match.
+> ⚠️ **Do not edit any values related to the plugin license, copyright or product identity.** The plugin validates these against encrypted hardcoded values at startup and will refuse to load if they do not match.
 
 ## Remote Copyright Check
 
@@ -114,22 +113,21 @@ Payload:
 
 ```json
 {
-  "api_key": "b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717",
   "program": "PalDiscordPlugin",
   "copyright": "PalDiscordPlugin\nCopyright 2026 RL-Dev.de"
 }
 ```
 
-The server validates the key and responds with:
+The server validates the license and responds with:
 
 ```json
 { "status": "ok", "allowed": true, "message": "startet" }
 ```
 
-If the key is blocked:
+If the license is blocked:
 
 ```json
-{ "reason": "API-Key gesperrt" }
+{ "reason": "gesperrt" }
 ```
 
 On any other response the plugin refuses to start. The server side (blocklist, IP logging, "Sperren" button) is managed by `rl-dev.de`.
@@ -161,7 +159,7 @@ PalworldDiscordPlugin/
 ## Security Notes
 
 - Keep your Discord webhook URL and bot token secret.
-- The `api_key` in `config.json` must match the encrypted hardcoded value.
+- Do not edit or remove any copyright, product name or license-related values.
 - Copyright and product name strings are XOR-obfuscated in the source and binary.
 - The generator script that produced the encrypted byte arrays is not part of the public repository.
 - The obfuscation raises the bar for casual tampering but cannot stop a determined reverse engineer.
