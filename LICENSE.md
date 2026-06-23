@@ -25,7 +25,7 @@ The following protected values must remain unchanged in any copy, modification, 
 - The copyright notice: `PalDiscordPlugin Copyright 2026 RL-Dev.de`
 - The product name: `PalDiscordPlugin`
 - The non-commercial notice displayed on startup
-- The master API key used for startup validation and the `/api/copyright-check` endpoint
+- The master API key used for startup validation and the remote check at `https://rl-dev.de/api/copyright-check`
 
 Removing, altering, or circumventing these protections violates this license.
 

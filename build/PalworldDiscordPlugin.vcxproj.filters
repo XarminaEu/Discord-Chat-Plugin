@@ -31,12 +31,6 @@
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\copyright_crypto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\copyright_endpoint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\blocked_key_store.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\chat_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -88,12 +82,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\copyright_crypto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\copyright_endpoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\blocked_key_store.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\chat_hook.h">

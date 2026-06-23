@@ -1,6 +1,5 @@
 EXPORTS 
 	??_R0?AV?$_Func_base@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@std@@@8 	 DATA
-	??_R0?AV?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@@8 	 DATA
 	??_R0?AV?$_Iosb@H@std@@@8 	 DATA
 	??_R0?AV?$_Ref_count_obj2@U_Dir_enum_impl@filesystem@std@@@std@@@8 	 DATA
 	??_R0?AV?$basic_filebuf@DU?$char_traits@D@std@@@std@@@8 	 DATA
@@ -28,7 +27,6 @@ EXPORTS
 	??_R0?AVios_base@std@@@8 	 DATA
 	??_R0?AVruntime_error@std@@@8 	 DATA
 	??_R0?AVsystem_error@std@@@8 	 DATA
-	??_R0P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@8 	 DATA
 	?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 	 DATA
 	?_Psave@?$_Facetptr@V?$codecvt@DDU_Mbstatet@@@std@@@std@@2PEBVfacet@locale@2@EB 	 DATA
 	?_Psave@?$_Facetptr@V?$ctype@D@std@@@std@@2PEBVfacet@locale@2@EB 	 DATA
@@ -36,7 +34,6 @@ EXPORTS
 	?_Static@?1???$_Immortalize_memcpy_image@V_Generic_error_category@std@@@std@@YAAEBV_Generic_error_category@1@XZ@4U?$_Constexpr_immortalize_impl@V_Generic_error_category@std@@@1@A 	 DATA
 	?_Static@?1???$_Immortalize_memcpy_image@V_System_error_category@std@@@std@@YAAEBV_System_error_category@1@XZ@4U?$_Constexpr_immortalize_impl@V_System_error_category@std@@@1@A 	 DATA
 	?_Stinit@?1??_Init@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAAXPEAU_iobuf@@W4_Initfl@23@@Z@4U_Mbstatet@@A 	 DATA
-	?g_blocked_keys@@3VBlockedKeyStore@@A 	 DATA
 	?g_config@@3VConfig@@A 	 DATA
 	?g_logger@@3VLogger@@A 	 DATA
 	?g_plugin@@3V?$unique_ptr@VPalworldDiscordPlugin@@U?$default_delete@VPalworldDiscordPlugin@@@std@@@std@@A 	 DATA
@@ -64,8 +61,6 @@ EXPORTS
 	??$?0$$V@?$_Compressed_pair@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
 	??$?0$$V@?$_Compressed_pair@V?$allocator@VJson@pjson@@@std@@V?$_Vector_val@U?$_Simple_types@VJson@pjson@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
 	??$?0$$V@?$_Compressed_pair@V?$allocator@_W@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
-	??$?0A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z$0A@@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@QEAA@A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@AEBUHttpRequest@@@Z@Z
-	??$?0A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z$0A@@?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@QEAA@A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@AEBUHttpRequest@@@Z@Z
 	??$?0AEAPEAV?$basic_ofstream@DU?$char_traits@D@std@@@std@@@?$_Compressed_pair@U?$default_delete@V?$basic_ofstream@DU?$char_traits@D@std@@@std@@@std@@PEAV?$basic_ofstream@DU?$char_traits@D@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@AEAPEAV?$basic_ofstream@DU?$char_traits@D@std@@@1@@Z
 	??$?0AEAPEAV?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@std@@@?$_Compressed_pair@U?$default_delete@V?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@std@@@std@@PEAV?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@AEAPEAV?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@1@@Z
 	??$?0AEAPEAV?$tuple@P8ConsoleReader@@EAAXXZPEAV1@@std@@@?$_Compressed_pair@U?$default_delete@V?$tuple@P8ConsoleReader@@EAAXXZPEAV1@@std@@@std@@PEAV?$tuple@P8ConsoleReader@@EAAXXZPEAV1@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@AEAPEAV?$tuple@P8ConsoleReader@@EAAXXZPEAV1@@1@@Z
@@ -81,7 +76,6 @@ EXPORTS
 	??$?0AEAPEAVthread@std@@@?$_Compressed_pair@U?$default_delete@Vthread@std@@@std@@PEAVthread@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@AEAPEAVthread@1@@Z
 	??$?0AEAV?$allocator@D@std@@$$V@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$00@std@@QEAA@U_One_then_variadic_args_t@1@AEAV?$allocator@D@1@@Z
 	??$?0AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAV01@$0A@@?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@QEAA@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@0@Z
-	??$?0AEBQ6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z$0A@@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@QEAA@AEBQ6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@AEBUHttpRequest@@@Z@Z
 	??$?0AEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@_N$0A@@?$pair@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@_N@std@@QEAA@AEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@1@$$QEA_N@Z
 	??$?0AEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@_N$0A@@?$pair@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@_N@std@@QEAA@AEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@1@$$QEA_N@Z
 	??$?0AEBU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@U_Zero_then_variadic_args_t@1@@?$_Compressed_pair@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@V?$_Compressed_pair@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PEAX@std@@@std@@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@2@$00@2@$00@std@@QEAA@U_One_then_variadic_args_t@1@AEBU?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@1@$$QEAU_Zero_then_variadic_args_t@1@@Z
@@ -100,7 +94,6 @@ EXPORTS
 	??$?0AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@?$_Tuple_val@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z
 	??$?0H$0A@@?$duration@_JU?$ratio@$00$00@std@@@chrono@std@@QEAA@AEBH@Z
 	??$?0H$0A@@?$duration@_JU?$ratio@$00$0DOI@@std@@@chrono@std@@QEAA@AEBH@Z
-	??$?0P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z$0A@@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@QEAA@$$QEAP6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@AEBUHttpRequest@@@Z@Z
 	??$?0P8ConsolePipe@@EAAXXZ@?$_Tuple_val@P8ConsolePipe@@EAAXXZ@std@@QEAA@$$QEAP8ConsolePipe@@EAAXXZ@Z
 	??$?0P8ConsolePipe@@EAAXXZPEAV0@$0A@@?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@std@@QEAA@$$QEAP8ConsolePipe@@EAAXXZ$$QEAPEAV2@@Z
 	??$?0P8ConsolePipe@@EAAXXZPEAV0@$0A@@thread@std@@QEAA@$$QEAP8ConsolePipe@@EAAXXZ$$QEAPEAV2@@Z
@@ -230,9 +223,7 @@ EXPORTS
 	??$?_0V?$basic_string_view@_WU?$char_traits@_W@std@@@std@@$0A@@path@filesystem@std@@QEAAAEAV012@AEBV?$basic_string_view@_WU?$char_traits@_W@std@@@2@@Z
 	??$_Adl_verify_range@PEADPEAD@std@@YAXAEBQEAD0@Z
 	??$_Adl_verify_range@PEB_WPEB_W@std@@YAXAEBQEB_W0@Z
-	??$_Adl_verify_range@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@V12@@std@@YAXAEBV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@0@Z
 	??$_Adl_verify_range@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@std@@V12@@std@@YAXAEBV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@0@0@Z
-	??$_Adl_verify_range@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@V12@@std@@YAXAEBV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@0@Z
 	??$_Allocate@$0BA@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z
 	??$_Allocate_at_least_helper@V?$allocator@D@std@@@std@@YAPEADAEAV?$allocator@D@0@AEA_K@Z
 	??$_Allocate_at_least_helper@V?$allocator@E@std@@@std@@YAPEAEAEAV?$allocator@E@0@AEA_K@Z
@@ -344,8 +335,6 @@ EXPORTS
 	??$_Find_first_of_pos_vectorized@DD@std@@YA_KQEBD_K01@Z
 	??$_Find_lower_bound@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@?$_Tree@V?$_Tmap_traits@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@2@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z
 	??$_Find_lower_bound@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@?$_Tree@V?$_Tmap_traits@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@2@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z
-	??$_Find_unchecked@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@YAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PEAV10@QEAV10@AEBV10@@Z
-	??$_Find_unchecked@PEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@YAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PEBV10@QEBV10@AEBV10@@Z
 	??$_Find_vectorized@$$CBDD@std@@YAPEBDQEBD0D@Z
 	??$_Fputc@D@std@@YA_NDPEAU_iobuf@@@Z
 	??$_Freenode0@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PEAX@std@@@std@@@?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PEAX@std@@SAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PEAX@std@@@1@PEAU01@@Z
@@ -364,16 +353,12 @@ EXPORTS
 	??$_Get_size_of_n@$0KA@@std@@YA_K_K@Z
 	??$_Get_unwrapped@AEAPEAD@std@@YA?A_TAEAPEAD@Z
 	??$_Get_unwrapped@AEAPEB_W@std@@YA?A_TAEAPEB_W@Z
-	??$_Get_unwrapped@AEAV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@@std@@YA?A_TAEAV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@@Z
-	??$_Get_unwrapped@AEAV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@@std@@YA?A_TAEAV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@@Z
 	??$_Get_unwrapped@AEBQEAD@std@@YA?A_TAEBQEAD@Z
 	??$_Get_unwrapped@AEBQEAU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@YA?A_TAEBQEAU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@0@@Z
 	??$_Get_unwrapped@AEBQEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@YA?A_TAEBQEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
 	??$_Get_unwrapped@AEBQEAVJson@pjson@@@std@@YA?A_TAEBQEAVJson@pjson@@@Z
 	??$_Get_unwrapped@AEBQEB_W@std@@YA?A_TAEBQEB_W@Z
-	??$_Get_unwrapped@AEBV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@@std@@YA?A_TAEBV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@@Z
 	??$_Get_unwrapped@AEBV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@std@@@std@@YA?A_TAEBV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@0@@Z
-	??$_Get_unwrapped@AEBV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@@std@@YA?A_TAEBV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@@Z
 	??$_Get_unwrapped@PEAVJson@pjson@@@std@@YA?A_T$$QEAPEAVJson@pjson@@@Z
 	??$_Get_unwrapped@PEBE@std@@YA?A_T$$QEAPEBE@Z
 	??$_Get_unwrapped@PEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@YA?A_T$$QEAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
@@ -400,7 +385,6 @@ EXPORTS
 	??$_Lower_bound_duplicate@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@?$_Tree@V?$_Tmap_traits@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@2@$0A@@std@@@std@@IEBA_NQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z
 	??$_Max_limit@_J@std@@YA_JXZ
 	??$_Move_construct_from@U_Dir_enum_impl@filesystem@std@@@?$_Ptr_base@U_Dir_enum_impl@filesystem@std@@@std@@IEAAX$$QEAV01@@Z
-	??$_Move_unchecked@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAV12@@std@@YAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PEAV10@00@Z
 	??$_Pocca@V?$allocator@D@std@@@std@@YAXAEAV?$allocator@D@0@AEBV10@@Z
 	??$_Pocca@V?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@@std@@@std@@YAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@@0@AEBV10@@Z
 	??$_Pocca@V?$allocator@VJson@pjson@@@std@@@std@@YAXAEAV?$allocator@VJson@pjson@@@0@AEBV10@@Z
@@ -421,15 +405,10 @@ EXPORTS
 	??$_Reallocate_grow_by@V<lambda_1>@?1??push_back@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAXD@Z@D@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAAEAV01@_KV<lambda_1>@?1??push_back@01@QEAAXD@Z@D@Z
 	??$_Reallocate_grow_by@V<lambda_1>@?1??push_back@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAX_W@Z@_W@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAAEAV01@_KV<lambda_1>@?1??push_back@01@QEAAX_W@Z@_W@Z
 	??$_Reallocate_grow_by@V<lambda_1>@?L@??reserve@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K@Z@$$V@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAAEAV01@_KV<lambda_1>@?L@??reserve@01@QEAAX0@Z@@Z
-	??$_Refancy_maybe_null@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$0A@@std@@YAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PEAV10@@Z
-	??$_Reset@A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@?$_Func_class@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@std@@IEAAXA6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@AEBUHttpRequest@@@Z@Z
 	??$_Resize@U_Value_init_tag@std@@@?$vector@DV?$allocator@D@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z
 	??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@DV?$allocator@D@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z
 	??$_Search_vectorized@$$CBD$$CBD@std@@YAPEBDQEBD00_K@Z
 	??$_Seek_wrapped@PEB_WAEAPEB_W@std@@YAXAEAPEB_W0@Z
-	??$_Seek_wrapped@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@PEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@std@@YAXAEAV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@$$QEAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
-	??$_Seek_wrapped@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@AEAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@std@@YAXAEAV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@AEAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
-	??$_Seek_wrapped@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@std@@YAXAEAV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@$$QEAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
 	??$_Set_ptr_rep_and_enable_shared@U_Dir_enum_impl@filesystem@std@@@?$shared_ptr@U_Dir_enum_impl@filesystem@std@@@std@@AEAAXQEAU_Dir_enum_impl@filesystem@1@QEAV_Ref_count_base@1@@Z
 	??$_Start@P8ConsolePipe@@EAAXXZPEAV1@@thread@std@@AEAAX$$QEAP8ConsolePipe@@EAAXXZ$$QEAPEAV2@@Z
 	??$_Start@P8ConsoleReader@@EAAXXZPEAV1@@thread@std@@AEAAX$$QEAP8ConsoleReader@@EAAXXZ$$QEAPEAV2@@Z
@@ -440,7 +419,6 @@ EXPORTS
 	??$_Stringoid_from_Source@$$BY0BAE@D@filesystem@std@@YA?A_PAEAY0BAE@$$CBD@Z
 	??$_Stringoid_from_Source@DU?$char_traits@D@std@@V?$allocator@D@2@@filesystem@std@@YA?A_PAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@@Z
 	??$_Stringoid_from_Source@_WU?$char_traits@_W@std@@@filesystem@std@@YA?A_PAEBV?$basic_string_view@_WU?$char_traits@_W@std@@@1@@Z
-	??$_Test_callable@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@YA_NA6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBUHttpRequest@@@Z@Z
 	??$_To_absolute_time@_JU?$ratio@$00$00@std@@@std@@YA?A_PAEBV?$duration@_JU?$ratio@$00$00@std@@@chrono@0@@Z
 	??$_To_absolute_time@_JU?$ratio@$00$0DOI@@std@@@std@@YA?A_PAEBV?$duration@_JU?$ratio@$00$0DOI@@std@@@chrono@0@@Z
 	??$_To_address@PEAD@std@@YA?A_PAEBQEAD@Z
@@ -486,7 +464,6 @@ EXPORTS
 	??$addressof@$$CBV?$_Tree@V?$_Tmap_traits@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@2@$0A@@std@@@std@@@std@@YAPEBV?$_Tree@V?$_Tmap_traits@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@2@$0A@@std@@@0@AEBV10@@Z
 	??$addressof@$$CBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@std@@@std@@YAPEBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@0@AEBV10@@Z
 	??$addressof@$$CBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@@std@@YAPEBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@0@AEBV10@@Z
-	??$addressof@$$CBV?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@YAPEBV?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@0@AEBV10@@Z
 	??$addressof@$$CBV?$basic_filebuf@DU?$char_traits@D@std@@@std@@@std@@YAPEBV?$basic_filebuf@DU?$char_traits@D@std@@@0@AEBV10@@Z
 	??$addressof@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@YAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBV10@@Z
 	??$addressof@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@YAPEBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@AEBV10@@Z
@@ -498,7 +475,6 @@ EXPORTS
 	??$addressof@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@@std@@YAPEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@0@AEAPEAU10@@Z
 	??$addressof@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@@std@@YAPEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@0@AEAPEAU10@@Z
 	??$addressof@PEA_W@std@@YAPEAPEA_WAEAPEA_W@Z
-	??$addressof@Q6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@YAPEBQ6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBUHttpRequest@@@ZAEBQ6A?AV10@0@Z@Z
 	??$addressof@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@YAPEAU?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@0@AEAU10@@Z
 	??$addressof@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@YAPEAU?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@0@AEAU10@@Z
 	??$addressof@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@YAPEAU?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@0@AEAU10@@Z
@@ -511,7 +487,6 @@ EXPORTS
 	??$addressof@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@std@@@std@@YAPEAV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@0@AEAV10@@Z
 	??$addressof@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@@std@@YAPEAV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@0@AEAV10@@Z
 	??$addressof@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@std@@YAPEAV?$_Vector_val@U?$_Simple_types@D@std@@@0@AEAV10@@Z
-	??$addressof@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@YAPEAV?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@0@AEAV10@@Z
 	??$addressof@V?$basic_filebuf@DU?$char_traits@D@std@@@std@@@std@@YAPEAV?$basic_filebuf@DU?$char_traits@D@std@@@0@AEAV10@@Z
 	??$addressof@V?$basic_ostream@DU?$char_traits@D@std@@@std@@@std@@YAPEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@@Z
 	??$addressof@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@YAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEAV10@@Z
@@ -576,16 +551,12 @@ EXPORTS
 	??$exchange@PEAVthread@std@@AEAPEAV12@@std@@YAPEAVthread@0@AEAPEAV10@0@Z
 	??$exchange@U_Thrd_t@@U1@@std@@YA?AU_Thrd_t@@AEAU1@$$QEAU1@@Z
 	??$exchange@W4__std_fs_dir_handle@@W41@@std@@YA?AW4__std_fs_dir_handle@@AEAW41@$$QEAW41@@Z
-	??$find@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@std@@YA?AV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@V10@V10@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
-	??$find@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@std@@YA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@V10@V10@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
 	??$find_if@PEB_WU_Is_slash_oper@filesystem@std@@@std@@YAPEB_WPEB_WQEB_WU_Is_slash_oper@filesystem@0@@Z
 	??$find_if_not@PEB_WU_Is_slash_oper@filesystem@std@@@std@@YAPEB_WPEB_WQEB_WU_Is_slash_oper@filesystem@0@@Z
-	??$forward@A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@YAA6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBUHttpRequest@@@ZA6A?AV10@0@Z@Z
 	??$forward@AEAPEAD@std@@YAAEAPEADAEAPEAD@Z
 	??$forward@AEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@@std@@YAAEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@0@AEAPEAU10@@Z
 	??$forward@AEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@@std@@YAAEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@0@AEAPEAU10@@Z
 	??$forward@AEAPEAV?$basic_ofstream@DU?$char_traits@D@std@@@std@@@std@@YAAEAPEAV?$basic_ofstream@DU?$char_traits@D@std@@@0@AEAPEAV10@@Z
-	??$forward@AEAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@YAAEAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEAPEAV10@@Z
 	??$forward@AEAPEAV?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@std@@@std@@YAAEAPEAV?$tuple@P8ConsolePipe@@EAAXXZPEAV1@@0@AEAPEAV10@@Z
 	??$forward@AEAPEAV?$tuple@P8ConsoleReader@@EAAXXZPEAV1@@std@@@std@@YAAEAPEAV?$tuple@P8ConsoleReader@@EAAXXZPEAV1@@0@AEAPEAV10@@Z
 	??$forward@AEAPEAV?$tuple@P8FileBridge@@EAAXXZPEAV1@@std@@@std@@YAAEAPEAV?$tuple@P8FileBridge@@EAAXXZPEAV1@@0@AEAPEAV10@@Z
@@ -606,7 +577,6 @@ EXPORTS
 	??$forward@AEAVJson@pjson@@@std@@YAAEAVJson@pjson@@AEAV12@@Z
 	??$forward@AEBE@std@@YAAEBEAEBE@Z
 	??$forward@AEBH@std@@YAAEBHAEBH@Z
-	??$forward@AEBQ6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@YAAEBQ6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBUHttpRequest@@@ZAEBQ6A?AV10@0@Z@Z
 	??$forward@AEBQEAD@std@@YAAEBQEADAEBQEAD@Z
 	??$forward@AEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PEAX@std@@@std@@YAAEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PEAX@0@AEBQEAU10@@Z
 	??$forward@AEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@@std@@YAAEBQEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@0@AEBQEAU10@@Z
@@ -625,7 +595,6 @@ EXPORTS
 	??$forward@AEBW4directory_options@filesystem@std@@@std@@YAAEBW4directory_options@filesystem@0@AEBW4120@@Z
 	??$forward@D@std@@YA$$QEADAEAD@Z
 	??$forward@H@std@@YA$$QEAHAEAH@Z
-	??$forward@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@YA$$QEAP6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBUHttpRequest@@@ZAEAP6A?AV10@0@Z@Z
 	??$forward@P8ConsolePipe@@EAAXXZ@std@@YA$$QEAP8ConsolePipe@@EAAXXZAEAP81@EAAXXZ@Z
 	??$forward@P8ConsoleReader@@EAAXXZ@std@@YA$$QEAP8ConsoleReader@@EAAXXZAEAP81@EAAXXZ@Z
 	??$forward@P8FileBridge@@EAAXXZ@std@@YA$$QEAP8FileBridge@@EAAXXZAEAP81@EAAXXZ@Z
@@ -635,7 +604,6 @@ EXPORTS
 	??$forward@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@std@@@std@@YA$$QEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@0@AEAPEAU10@@Z
 	??$forward@PEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@std@@@std@@YA$$QEAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@0@AEAPEAU10@@Z
 	??$forward@PEAU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@YA$$QEAPEAU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@0@AEAPEAU10@@Z
-	??$forward@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@YA$$QEAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEAPEAV10@@Z
 	??$forward@PEAVConsolePipe@@@std@@YA$$QEAPEAVConsolePipe@@AEAPEAV1@@Z
 	??$forward@PEAVConsoleReader@@@std@@YA$$QEAPEAVConsoleReader@@AEAPEAV1@@Z
 	??$forward@PEAVFileBridge@@@std@@YA$$QEAPEAVFileBridge@@AEAPEAV1@@Z
@@ -682,7 +650,6 @@ EXPORTS
 	??$get@$0A@P8PalworldDiscordPlugin@@EAAXXZPEAV1@@std@@YAAEAP8PalworldDiscordPlugin@@EAAXXZAEAV?$tuple@P8PalworldDiscordPlugin@@EAAXXZPEAV1@@0@@Z
 	??$getline@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@YAAEAV?$basic_istream@DU?$char_traits@D@std@@@0@$$QEAV10@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@D@Z
 	??$getline@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@YAAEAV?$basic_istream@DU?$char_traits@D@std@@@0@AEAV10@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
-	??$invoke@AEAP6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZAEBU3@$$V@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEAP6A?AV10@AEBUHttpRequest@@@Z0@Z
 	??$invoke@P8ConsolePipe@@EAAXXZPEAV1@$$V@std@@YAX$$QEAP8ConsolePipe@@EAAXXZ$$QEAPEAV1@@Z
 	??$invoke@P8ConsoleReader@@EAAXXZPEAV1@$$V@std@@YAX$$QEAP8ConsoleReader@@EAAXXZ$$QEAPEAV1@@Z
 	??$invoke@P8FileBridge@@EAAXXZPEAV1@$$V@std@@YAX$$QEAP8FileBridge@@EAAXXZ$$QEAPEAV1@@Z
@@ -710,7 +677,6 @@ EXPORTS
 	??$max@_K@std@@YAAEB_KAEB_K0@Z
 	??$min@_K@std@@YAAEB_KAEB_K0@Z
 	??$move@AEAD@std@@YA$$QEADAEAD@Z
-	??$move@AEAP6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@std@@YA$$QEAP6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@AEBUHttpRequest@@@ZAEAP6A?AV10@0@Z@Z
 	??$move@AEAP8ConsolePipe@@EAAXXZ@std@@YA$$QEAP8ConsolePipe@@EAAXXZAEAP81@EAAXXZ@Z
 	??$move@AEAP8ConsoleReader@@EAAXXZ@std@@YA$$QEAP8ConsoleReader@@EAAXXZAEAP81@EAAXXZ@Z
 	??$move@AEAP8FileBridge@@EAAXXZ@std@@YA$$QEAP8FileBridge@@EAAXXZAEAP81@EAAXXZ@Z
@@ -755,7 +721,6 @@ EXPORTS
 	??$move@AEAVpath@filesystem@std@@@std@@YA$$QEAVpath@filesystem@0@AEAV120@@Z
 	??$move@AEA_K@std@@YA$$QEA_KAEA_K@Z
 	??$put_time@D@std@@YA?AU?$_Timeobj@DPEBUtm@@@0@PEBUtm@@PEBD@Z
-	??$remove@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@std@@YA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@0@V10@V10@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z
 	??$setfill@D@std@@YA?AU?$_Fillobj@D@0@D@Z
 	??$sleep_for@_JU?$ratio@$00$00@std@@@this_thread@std@@YAXAEBV?$duration@_JU?$ratio@$00$00@std@@@chrono@1@@Z
 	??$sleep_for@_JU?$ratio@$00$0DOI@@std@@@this_thread@std@@YAXAEBV?$duration@_JU?$ratio@$00$0DOI@@std@@@chrono@1@@Z
@@ -804,9 +769,7 @@ EXPORTS
 	??0?$_Uninitialized_backout_al@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@QEAA@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@AEAV?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@1@@Z
 	??0?$_Uninitialized_backout_al@V?$allocator@VJson@pjson@@@std@@@std@@QEAA@PEAVJson@pjson@@AEAV?$allocator@VJson@pjson@@@1@@Z
 	??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@std@@QEAA@PEADPEBU_Container_base0@1@@Z
-	??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEAA@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@PEBU_Container_base0@1@@Z
 	??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@std@@QEAA@PEADPEBU_Container_base0@1@@Z
-	??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEAA@PEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@1@PEBU_Container_base0@1@@Z
 	??0?$_Vector_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ
 	??0?$_Vector_val@U?$_Simple_types@E@std@@@std@@QEAA@XZ
 	??0?$_Vector_val@U?$_Simple_types@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@QEAA@PEAU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@1@00@Z
@@ -896,7 +859,6 @@ EXPORTS
 	??0?$vector@VJson@pjson@@V?$allocator@VJson@pjson@@@std@@@std@@QEAA@$$QEAV01@@Z
 	??0?$vector@VJson@pjson@@V?$allocator@VJson@pjson@@@std@@@std@@QEAA@AEBV01@@Z
 	??0?$vector@VJson@pjson@@V?$allocator@VJson@pjson@@@std@@@std@@QEAA@XZ
-	??0BlockedKeyStore@@QEAA@XZ
 	??0ChatHook@@QEAA@XZ
 	??0Config@@QEAA@XZ
 	??0ConsolePipe@@QEAA@XZ
@@ -1037,7 +999,6 @@ EXPORTS
 	??1?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@2@@std@@QEAA@XZ
 	??1?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEAA@XZ
 	??1?$vector@VJson@pjson@@V?$allocator@VJson@pjson@@@std@@@std@@QEAA@XZ
-	??1BlockedKeyStore@@QEAA@XZ
 	??1ChatHook@@QEAA@XZ
 	??1Config@@QEAA@XZ
 	??1ConsolePipe@@QEAA@XZ
@@ -1110,13 +1071,11 @@ EXPORTS
 	??4thread@std@@QEAAAEAV01@$$QEAV01@@Z
 	??8?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z
 	??8?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z
-	??8?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z
 	??8error_category@std@@QEBA_NAEBV01@@Z
 	??8std@@YA_NAEBVerror_condition@0@0@Z
 	??9?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z
 	??9?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z
 	??9?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEBA_NU_Default_sentinel@1@@Z
-	??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z
 	??9directory_iterator@filesystem@std@@QEBA_NAEBV012@@Z
 	??A?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAD_K@Z
 	??A?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBAAEBD_K@Z
@@ -1197,7 +1156,6 @@ EXPORTS
 	??Y?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAAAEAV012@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@@Z
 	??_0path@filesystem@std@@QEAAAEAV012@AEBV012@@Z
 	??_5@YAAEAW4__std_fs_stats_flags@@AEAW40@W40@@Z
-	??_7?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@6B@
 	??_7?$_Ref_count_obj2@U_Dir_enum_impl@filesystem@std@@@std@@6B@
 	??_7?$basic_filebuf@DU?$char_traits@D@std@@@std@@6B@
 	??_7?$basic_ifstream@DU?$char_traits@D@std@@@std@@6B@
@@ -1223,7 +1181,6 @@ EXPORTS
 	??_D?$basic_stringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAXXZ
 	??__Ksv@string_view_literals@literals@std@@YA?AV?$basic_string_view@DU?$char_traits@D@std@@@3@PEBD_K@Z
 	??__Ksv@string_view_literals@literals@std@@YA?AV?$basic_string_view@_WU?$char_traits@_W@std@@@3@PEB_W_K@Z
-	?Block@BlockedKeyStore@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?BridgeThread@PalworldDiscordPlugin@@AEAAXXZ
 	?BroadcastMessage@ChatHook@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z
 	?Critical@Logger@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
@@ -1266,10 +1223,7 @@ EXPORTS
 	?GetVersion@PalworldDiscordPlugin@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 	?GetWebhookUrl@Config@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 	?GetWebhookUrl@DiscordWebhook@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
-	?HandleAdminBlock@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z
-	?HandleAdminUnblock@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z
 	?HandleClient@HttpServer@@AEAAX_K@Z
-	?HandleCopyrightCheck@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z
 	?HandleDiscordMessage@PalworldDiscordPlugin@@CA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@@Z
 	?HandleLine@ConsoleHook@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?HandleLine@ConsolePipe@@AEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
@@ -1285,7 +1239,6 @@ EXPORTS
 	?Initialize@Logger@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?Initialize@PalworldDiscordPlugin@@QEAA_NXZ
 	?Install@ConsoleHook@@SA_NV?$function@$$A6AXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00@Z@std@@@Z
-	?IsBlocked@BlockedKeyStore@@QEBA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?IsBridgeEnabled@Config@@QEBA_NXZ
 	?IsDebugMode@Config@@QEBA_NXZ
 	?IsDiscordToGameEnabled@Config@@QEBA_NXZ
@@ -1296,7 +1249,6 @@ EXPORTS
 	?IsRunning@FileBridge@@QEBA_NXZ
 	?IsRunning@HttpServer@@QEBA_NXZ
 	?IsRunning@LogWatcher@@QEBA_NXZ
-	?Load@BlockedKeyStore@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?LoadFromFile@Config@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?LoadedFromFile@Config@@QEBA_NXZ
 	?Log@Logger@@QEAAXW4LogLevel@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
@@ -1314,7 +1266,6 @@ EXPORTS
 	?ReadLoop@ConsoleReader@@AEAAXXZ
 	?RegisterHandler@HttpServer@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@3@@Z
 	?RunServer@HttpServer@@AEAAXXZ
-	?Save@BlockedKeyStore@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?SaveToFile@Config@@QEBA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?SelfInstall@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?SendChatEvents@Config@@QEBA_NXZ
@@ -1347,7 +1298,6 @@ EXPORTS
 	?Stop@FileBridge@@QEAAXXZ
 	?Stop@HttpServer@@QEAAXXZ
 	?Stop@LogWatcher@@QEAAXXZ
-	?Unblock@BlockedKeyStore@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 	?Uninstall@ConsoleHook@@SAXXZ
 	?ValidateCopyrightAndKey@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAV12@@Z
 	?ValidateUrl@DiscordWebhook@@AEBA_NXZ
@@ -1399,20 +1349,16 @@ EXPORTS
 	?_Check_offset@?$_String_val@U?$_Simple_types@_W@std@@@std@@QEBAX_K@Z
 	?_Clamp_suffix_size@?$_String_val@U?$_Simple_types@D@std@@@std@@QEBA_K_K0@Z
 	?_Clear_and_reserve_geometric@?$vector@VJson@pjson@@V?$allocator@VJson@pjson@@@std@@@std@@AEAAX_K@Z
-	?_Compat@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEBAXAEBV12@@Z
 	?_Construct_empty@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ
 	?_Construct_empty@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAXXZ
 	?_Convert_narrow_to_wide@filesystem@std@@YA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@2@W4__std_code_page@@V?$basic_string_view@DU?$char_traits@D@std@@@2@@Z
-	?_Copy@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@EEBAPEAV?$_Func_base@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@2@PEAX@Z
 	?_Deallocate_for_capacity@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@CAXAEAV?$allocator@D@2@QEAD_K@Z
 	?_Deallocate_for_capacity@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@CAXAEAV?$allocator@_W@2@QEA_W_K@Z
 	?_Decref@?$_Ptr_base@U_Dir_enum_impl@filesystem@std@@@std@@IEAAXXZ
 	?_Decref@_Ref_count_base@std@@QEAAXXZ
 	?_Decwref@_Ref_count_base@std@@QEAAXXZ
-	?_Delete_this@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@EEAAX_N@Z
 	?_Delete_this@?$_Ref_count_obj2@U_Dir_enum_impl@filesystem@std@@@std@@EEAAXXZ
 	?_Destroy@?$_Ref_count_obj2@U_Dir_enum_impl@filesystem@std@@@std@@EEAAXXZ
-	?_Do_call@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@EEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@AEBUHttpRequest@@@Z
 	?_Empty@?$_Func_class@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@std@@IEBA_NXZ
 	?_Empty@?$_Func_class@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@std@@IEBA_NXZ
 	?_Empty@?$_Func_class@XAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@std@@IEBA_NXZ
@@ -1427,7 +1373,6 @@ EXPORTS
 	?_Find_filename@filesystem@std@@YAPEB_WQEB_WPEB_W@Z
 	?_Find_relative_path@filesystem@std@@YAPEB_WQEB_W0@Z
 	?_Find_root_name_end@filesystem@std@@YAPEB_WQEB_W0@Z
-	?_Get@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@EEBAPEBXXZ
 	?_Get_any_status@directory_entry@filesystem@std@@AEBA?AU_File_status_and_error@23@W4__std_fs_stats_flags@@@Z
 	?_Get_any_status@filesystem@std@@YA?AU_File_status_and_error@12@AEBVpath@12@W4__std_fs_stats_flags@@@Z
 	?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ
@@ -1530,7 +1475,6 @@ EXPORTS
 	?_Match@?$_String_bitmap@D$00@std@@QEBA_ND@Z
 	?_Max@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@SAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@2@PEAU32@@Z
 	?_Min@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@SAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@2@PEAU32@@Z
-	?_Move@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@EEAAPEAV?$_Func_base@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@2@PEAX@Z
 	?_Mymtx@_Mutex_base@std@@AEAAPEAU_Mtx_internal_imp_t@@XZ
 	?_Myptr@?$_String_val@U?$_Simple_types@D@std@@@std@@QEAAPEADXZ
 	?_Myptr@?$_String_val@U?$_Simple_types@D@std@@@std@@QEBAPEBDXZ
@@ -1575,7 +1519,6 @@ EXPORTS
 	?_Reset_move@?$_Func_class@_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@std@@IEAAX$$QEAV12@@Z
 	?_Rrotate@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@@std@@@std@@QEAAXPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@Z@2@@std@@PEAX@2@@Z
 	?_Rrotate@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@std@@@std@@QEAAXPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@PEAX@2@@Z
-	?_Seek_to@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEAAXPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z
 	?_Set@?$_Func_class@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@std@@AEAAXPEAV?$_Func_base@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@2@@Z
 	?_Set@?$_Func_class@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@std@@AEAAXPEAV?$_Func_base@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@2@@Z
 	?_Set@?$_Func_class@XAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@std@@AEAAXPEAV?$_Func_base@XAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV12@@2@@Z
@@ -1600,7 +1543,6 @@ EXPORTS
 	?_Take_contents@?$_Vector_val@U?$_Simple_types@VJson@pjson@@@std@@@std@@QEAAXAEAV12@@Z
 	?_Take_contents@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXAEAV12@@Z
 	?_Take_contents@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAXAEAV12@@Z
-	?_Target_type@?$_Func_impl_no_alloc@P6A?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUHttpRequest@@@ZV12@AEBU3@@std@@EEBAAEBVtype_info@@XZ
 	?_Throw_bad_array_new_length@std@@YAXXZ
 	?_Throw_bad_cast@std@@YAXXZ
 	?_Throw_fs_error@filesystem@std@@YAXPEBDAEBVerror_code@2@AEBVpath@12@@Z
@@ -1637,9 +1579,7 @@ EXPORTS
 	?_Unchecked_end@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEAAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ
 	?_Unchecked_end@?$vector@VJson@pjson@@V?$allocator@VJson@pjson@@@std@@@std@@QEBAPEBVJson@pjson@@XZ
 	?_Unlock@?$basic_filebuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
-	?_Unwrapped@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEBAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ
 	?_Unwrapped@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@std@@QEBAPEADXZ
-	?_Unwrapped@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@std@@QEBAPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ
 	?_Verify_ownership_levels@_Mutex_base@std@@IEAA_NXZ
 	?_Xlen_string@std@@YAXXZ
 	?_Xlength@?$vector@DV?$allocator@D@std@@@std@@CAXXZ
@@ -1678,8 +1618,6 @@ EXPORTS
 	?begin@?$initializer_list@E@std@@QEBAPEBEXZ
 	?begin@?$initializer_list@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@QEBAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ
 	?begin@?$vector@DV?$allocator@D@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@2@XZ
-	?begin@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@2@XZ
-	?begin@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEBA?AV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@2@XZ
 	?begin@filesystem@std@@YA?AVdirectory_iterator@12@V312@@Z
 	?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBAPEBDXZ
 	?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ
@@ -1692,7 +1630,6 @@ EXPORTS
 	?category@error_condition@std@@QEBAAEBVerror_category@2@XZ
 	?clear@?$_Tree@V?$_Tmap_traits@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJson@pjson@@@std@@@2@$0A@@std@@@std@@QEAAXXZ
 	?clear@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAXXZ
-	?clear@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEAAXXZ
 	?clear@error_code@std@@QEAAXXZ
 	?close@?$basic_filebuf@DU?$char_traits@D@std@@@std@@QEAAPEAV12@XZ
 	?close@?$basic_ifstream@DU?$char_traits@D@std@@@std@@QEAAXXZ
@@ -1744,8 +1681,6 @@ EXPORTS
 	?end@?$initializer_list@E@std@@QEBAPEBEXZ
 	?end@?$initializer_list@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@QEBAPEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@XZ
 	?end@?$vector@DV?$allocator@D@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@2@XZ
-	?end@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@2@XZ
-	?end@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEBA?AV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@2@XZ
 	?end@filesystem@std@@YA?AVdirectory_iterator@12@V312@@Z
 	?eof@?$_Narrow_char_traits@DH@std@@SAHXZ
 	?eq@?$_Narrow_char_traits@DH@std@@SA_NDD@Z
@@ -1755,7 +1690,6 @@ EXPORTS
 	?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z
 	?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K@Z
 	?erase@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@_K@Z
-	?erase@?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@@2@0@Z
 	?escape_string@Json@pjson@@CAXAEAV?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@@Z
 	?exists@filesystem@std@@YA_NAEBVpath@12@@Z
 	?exists@filesystem@std@@YA_NAEBVpath@12@AEAVerror_code@2@@Z

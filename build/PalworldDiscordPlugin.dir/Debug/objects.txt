@@ -8,8 +8,6 @@ D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/install.
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/http_server.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/http_client.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/copyright_crypto.obj
-D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/copyright_endpoint.obj
-D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/blocked_key_store.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/chat_hook.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/console_hook.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Debug/console_pipe.obj

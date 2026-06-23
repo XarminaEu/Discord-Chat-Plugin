@@ -127,9 +127,15 @@ Response:
 { "status": "ok", "message": "Message sent to chat" }
 ```
 
-### `POST /api/copyright-check`
+## Remote Copyright Check
 
-Verifies a caller's API key, program name and copyright text. The caller's IP is logged automatically.
+At startup the plugin sends a `POST` request to the external service:
+
+```
+https://rl-dev.de/api/copyright-check
+```
+
+Payload:
 
 ```json
 {
@@ -139,7 +145,7 @@ Verifies a caller's API key, program name and copyright text. The caller's IP is
 }
 ```
 
-Response:
+The server validates the key and responds with:
 
 ```json
 { "status": "ok", "allowed": true, "message": "startet" }
@@ -151,18 +157,7 @@ If the key is blocked:
 { "reason": "API-Key gesperrt" }
 ```
 
-### `POST /api/admin/block` / `POST /api/admin/unblock`
-
-Block or unblock an API key. Requires the master key in the `api_key` field and the target key in `target_key`.
-
-```json
-{
-  "api_key": "PalDiscordPlugin b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717",
-  "target_key": "KEY_TO_BLOCK"
-}
-```
-
-Blocked keys are stored in `blocked_keys.json`.
+On any other response the plugin refuses to start. The server side (blocklist, IP logging, "Sperren" button) is managed by `rl-dev.de`.
 
 ## Discord Bot Setup
 
@@ -185,7 +180,6 @@ PalworldDiscordPlugin/
 ├── CMakeLists.txt          # CMake configuration
 ├── README.md               # This file
 ├── LICENSE.md              # License terms
-├── blocked_keys.json       # Blocked API key list
 └── tools/                  # Helper scripts
 ```
 

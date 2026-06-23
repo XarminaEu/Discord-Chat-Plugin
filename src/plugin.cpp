@@ -4,8 +4,6 @@
 #include "discord_bot.h"
 #include "config.h"
 #include "http_server.h"
-#include "copyright_endpoint.h"
-#include "blocked_key_store.h"
 #include "json.h"
 #include <filesystem>
 
@@ -72,16 +70,10 @@ bool PalworldDiscordPlugin::Initialize() {
         g_logger.Info("Discord bot polling disabled (set discord_to_game + bot_token + channel_id to enable)");
     }
 
-    // Load blocked API key list
-    g_blocked_keys.Load("blocked_keys.json");
-
-    // Start HTTP server for Discord->Game messages and copyright checks
+    // Start HTTP server for Discord->Game messages
     http_server_ = std::make_unique<HttpServer>(g_config.GetHttpBind(), g_config.GetHttpPort());
     http_server_->RegisterHandler("POST", "/discord/message",
         [](const HttpRequest& req) { return PalworldDiscordPlugin::HandleDiscordMessage(req.body); });
-    http_server_->RegisterHandler("POST", "/api/copyright-check", HandleCopyrightCheck);
-    http_server_->RegisterHandler("POST", "/api/admin/block", HandleAdminBlock);
-    http_server_->RegisterHandler("POST", "/api/admin/unblock", HandleAdminUnblock);
     if (!http_server_->Start()) {
         g_logger.Critical("Failed to start HTTP server");
         return false;

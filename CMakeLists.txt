@@ -38,8 +38,6 @@ set(SOURCES
     src/http_server.cpp
     src/http_client.cpp
     src/copyright_crypto.cpp
-    src/copyright_endpoint.cpp
-    src/blocked_key_store.cpp
     src/chat_hook.cpp
     src/console_hook.cpp
     src/console_pipe.cpp
@@ -60,8 +58,6 @@ set(HEADERS
     include/http_server.h
     include/http_client.h
     include/copyright_crypto.h
-    include/copyright_endpoint.h
-    include/blocked_key_store.h
     include/chat_hook.h
     include/console_hook.h
     include/console_pipe.h
