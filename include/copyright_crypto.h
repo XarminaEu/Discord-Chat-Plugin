@@ -20,6 +20,7 @@ public:
     static std::string GetCopyrightText();
     static std::string GetNonCommercialNotice();
     static std::string GetProductName();
+    static std::string GetExternalCheckUrl();
 
     // Verification helpers.
     static bool VerifyApiKey(const std::string& key);
@@ -37,6 +38,7 @@ private:
     static const std::vector<unsigned char> kCopyright;
     static const std::vector<unsigned char> kNonCommercial;
     static const std::vector<unsigned char> kProductName;
+    static const std::vector<unsigned char> kExternalCheckUrl;
 };
 
 // Decrypt and print the copyright notice to the game console.

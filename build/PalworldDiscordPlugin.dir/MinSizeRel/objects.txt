@@ -6,6 +6,7 @@ D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/con
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/logger.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/install.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/http_server.obj
+D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/http_client.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/copyright_crypto.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/copyright_endpoint.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/MinSizeRel/blocked_key_store.obj

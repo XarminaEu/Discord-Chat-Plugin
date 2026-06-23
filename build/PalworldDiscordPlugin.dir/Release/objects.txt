@@ -6,6 +6,7 @@ D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/config
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/logger.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/install.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/http_server.obj
+D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/http_client.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/copyright_crypto.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/copyright_endpoint.obj
 D:/Palworld/PalworldDiscordPlugin/build/PalworldDiscordPlugin.dir/Release/blocked_key_store.obj

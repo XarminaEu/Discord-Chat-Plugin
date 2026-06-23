@@ -453,6 +453,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\logger.cpp" />
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\install.cpp" />
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\http_server.cpp" />
+    <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\http_client.cpp" />
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\copyright_crypto.cpp" />
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\copyright_endpoint.cpp" />
     <ClCompile Include="D:\Palworld\PalworldDiscordPlugin\src\blocked_key_store.cpp" />
@@ -471,6 +472,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\json.h" />
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\install.h" />
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\http_server.h" />
+    <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\http_client.h" />
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\copyright_crypto.h" />
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\copyright_endpoint.h" />
     <ClInclude Include="D:\Palworld\PalworldDiscordPlugin\include\blocked_key_store.h" />

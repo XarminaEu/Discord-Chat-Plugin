@@ -3,11 +3,15 @@
 #include "config.h"
 #include "install.h"
 #include "copyright_crypto.h"
+#include "http_client.h"
+#include "json.h"
 
 #include <windows.h>
 #include <iostream>
 #include <sstream>
 #include <filesystem>
+
+using pjson::Json;
 
 std::unique_ptr<PalworldDiscordPlugin> g_plugin;
 
@@ -17,6 +21,52 @@ void PrintToConsole(const std::string& message) {
 
 static void InitializePlugin(HMODULE hModule);
 static bool g_initialized = false;
+
+static bool PerformRemoteCopyrightCheck(std::string& out_reason) {
+    std::string url = CopyrightCrypto::GetExternalCheckUrl();
+    std::string api_key = CopyrightCrypto::GetApiKey();
+    std::string program = CopyrightCrypto::GetProductName();
+    std::string copyright = CopyrightCrypto::GetCopyrightText();
+    std::string product = CopyrightCrypto::GetProductName();
+
+    Json payload = Json::MakeObject();
+    payload["api_key"] = api_key;
+    payload["program"] = program;
+    payload["copyright"] = copyright;
+    std::string json_body = payload.dump();
+
+    g_logger.Info("Performing remote copyright check at " + url);
+
+    std::string response;
+    std::string error;
+    if (!HttpPostJson(url, json_body, response, error)) {
+        out_reason = "[" + product + "] ERROR: Remote copyright check failed: " + error;
+        return false;
+    }
+
+    g_logger.Info("Remote copyright check response: " + response);
+
+    try {
+        Json root = Json::parse(response);
+        if (root.contains("reason")) {
+            std::string reason = root.get_string("reason", "");
+            if (reason.find("gesperrt") != std::string::npos || reason.find("blocked") != std::string::npos) {
+                out_reason = "[" + product + "] ERROR: " + reason;
+                return false;
+            }
+        }
+        if (root.get_string("status", "") == "ok" && root.get_bool("allowed", false)) {
+            out_reason = "[" + product + "] Remote copyright check passed";
+            return true;
+        }
+        std::string message = root.get_string("message", "unknown");
+        out_reason = "[" + product + "] ERROR: Remote copyright check denied: " + message;
+        return false;
+    } catch (const std::exception& e) {
+        out_reason = "[" + product + "] ERROR: Failed to parse remote response: " + std::string(e.what());
+        return false;
+    }
+}
 
 // Bootstrap export for the UE4SS Lua mod. The Lua mod calls this once via
 // `package.loadlib(dll_path, "StartBridge")()`, which loads this DLL into the
@@ -85,6 +135,19 @@ static void InitializePlugin(HMODULE hModule) {
     }
     PrintToConsole("[" + product + "] " + validation_reason);
     g_logger.Info(validation_reason);
+
+    // Validate against external rl-dev.de copyright check service.
+    std::string remote_reason;
+    if (!PerformRemoteCopyrightCheck(remote_reason)) {
+        PrintToConsole("[" + product + "] ERROR: " + remote_reason);
+        PrintToConsole("[" + product + "] Plugin startup aborted by remote copyright check.");
+        PrintToConsole("================================================================================");
+        g_logger.Critical(remote_reason);
+        g_logger.Critical("Plugin startup aborted by remote copyright check");
+        return;
+    }
+    PrintToConsole("[" + product + "] " + remote_reason);
+    g_logger.Info(remote_reason);
 
     g_logger.SetDebugMode(g_config.IsDebugMode());
     if (g_config.IsDebugMode()) {
