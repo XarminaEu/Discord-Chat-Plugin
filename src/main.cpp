@@ -39,12 +39,14 @@ static bool PerformRemoteCopyrightCheck(std::string& out_reason) {
 
     std::string response;
     std::string error;
-    if (!HttpPostJson(url, json_body, response, error)) {
+    bool http_ok = HttpPostJson(url, json_body, response, error);
+
+    g_logger.Info("Remote copyright check response: " + response);
+
+    if (!http_ok && response.empty()) {
         out_reason = "[" + product + "] ERROR: Remote copyright check failed: " + error;
         return false;
     }
-
-    g_logger.Info("Remote copyright check response: " + response);
 
     try {
         Json root = Json::parse(response);
@@ -63,7 +65,11 @@ static bool PerformRemoteCopyrightCheck(std::string& out_reason) {
         out_reason = "[" + product + "] ERROR: Remote copyright check denied: " + message;
         return false;
     } catch (const std::exception& e) {
-        out_reason = "[" + product + "] ERROR: Failed to parse remote response: " + std::string(e.what());
+        if (!http_ok) {
+            out_reason = "[" + product + "] ERROR: Remote copyright check failed: " + error;
+        } else {
+            out_reason = "[" + product + "] ERROR: Failed to parse remote response: " + std::string(e.what());
+        }
         return false;
     }
 }

@@ -114,7 +114,7 @@ Payload:
 ```json
 {
   "program": "PalDiscordPlugin",
-  "copyright": "PalDiscordPlugin\nCopyright 2026 RL-Dev.de"
+  "copyright": "Copyright 2026 RL-Dev.de"
 }
 ```
 

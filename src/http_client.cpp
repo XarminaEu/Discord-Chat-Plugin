@@ -70,24 +70,27 @@ bool HttpPostJson(const std::string& url, const std::string& json_body, std::str
             WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER,
             WINHTTP_HEADER_NAME_BY_INDEX, &status_code, &size, WINHTTP_NO_HEADER_INDEX);
 
+        // Read response body regardless of status code so the caller can
+        // parse error messages such as {"reason": "API-Key gesperrt"}.
+        DWORD available = 0;
+        std::vector<char> buffer;
+        do {
+            available = 0;
+            if (!WinHttpQueryDataAvailable(hRequest, &available)) break;
+            if (available == 0) break;
+            size_t old_size = buffer.size();
+            buffer.resize(old_size + available);
+            DWORD read = 0;
+            if (!WinHttpReadData(hRequest, &buffer[old_size], available, &read)) break;
+            buffer.resize(old_size + read);
+        } while (available > 0);
+        out_response.assign(buffer.begin(), buffer.end());
+
         if (status_code >= 200 && status_code < 300) {
             success = true;
-            // Read response body
-            DWORD available = 0;
-            std::vector<char> buffer;
-            do {
-                available = 0;
-                if (!WinHttpQueryDataAvailable(hRequest, &available)) break;
-                if (available == 0) break;
-                size_t old_size = buffer.size();
-                buffer.resize(old_size + available);
-                DWORD read = 0;
-                if (!WinHttpReadData(hRequest, &buffer[old_size], available, &read)) break;
-                buffer.resize(old_size + read);
-            } while (available > 0);
-            out_response.assign(buffer.begin(), buffer.end());
         } else {
-            out_error = "HTTP status " + std::to_string(status_code);
+            out_error = "HTTP status " + std::to_string(status_code) +
+                        (out_response.empty() ? "" : ": " + out_response);
         }
     } else {
         out_error = "WinHttpSendRequest/ReceiveResponse failed (error " + std::to_string(GetLastError()) + ")";
