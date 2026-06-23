@@ -96,7 +96,7 @@ static void InitializePlugin(HMODULE hModule) {
 
     PrintToConsole("================================================================================");
     PrintToConsole("[" + product + "] Loading plugin...");
-    PrintToConsole("[" + product + "] Version: 4.0.1 [Non-Commercial]");
+    PrintToConsole("[" + product + "] Version: 4.0.2 [Non-Commercial]");
     PrintToConsole("[" + product + "] " + copyright);
     PrintToConsole("[" + product + "] " + notice);
     PrintToConsole("================================================================================");
@@ -118,7 +118,7 @@ static void InitializePlugin(HMODULE hModule) {
 
     g_logger.Initialize(g_config.GetLogFile());
     g_logger.Info("================================================================================");
-    g_logger.Info(product + " v4.0.1 - Loading (Non-Commercial)");
+    g_logger.Info(product + " v4.0.2 - Loading (Non-Commercial)");
     g_logger.Info(copyright);
     g_logger.Info(notice);
     g_logger.Info("================================================================================");

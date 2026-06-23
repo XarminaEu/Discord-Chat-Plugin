@@ -1,6 +1,6 @@
 # Discord Bot - Plugin Integration Guide
 
-> **Hinweis:** Ab Version 4.0.1 startet das Plugin **keinen HTTP-Server** mehr. Discord → Palworld läuft jetzt ausschließlich über die Datei-Bridge (`PalDiscordBridge_in.txt` / konfigurierbar in `config.json` unter `bridge.incoming_file`). Der Bot muss direkt in diese Datei schreiben (z.B. über Netzwerk-Freigabe oder wenn er auf demselben Server läuft). Die HTTP-Endpoint-Beispiele unten sind nicht mehr gültig.
+> **Hinweis:** Ab Version 4.0.2 startet das Plugin **keinen HTTP-Server** mehr. Discord → Palworld läuft jetzt ausschließlich über die Datei-Bridge (`PalDiscordBridge_in.txt` / konfigurierbar in `config.json` unter `bridge.incoming_file`). Der Bot muss direkt in diese Datei schreiben (z.B. über Netzwerk-Freigabe oder wenn er auf demselben Server läuft). Die HTTP-Endpoint-Beispiele unten sind nicht mehr gültig.
 
 ## Übersicht
 Dein bestehendes Discord Bot muss erweitert werden, um Nachrichten an das Palworld-Plugin zu senden.

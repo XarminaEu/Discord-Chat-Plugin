@@ -1,29 +1,35 @@
-[2026-06-23 16:32:33.551] [INFO] Logger initialized
-[2026-06-23 16:32:33.552] [INFO] ================================================================================
-[2026-06-23 16:32:33.552] [INFO] PalDiscordPlugin v4.0.1 - Loading (Non-Commercial)
-[2026-06-23 16:32:33.552] [INFO] Copyright 2026 RL-Dev.de
-[2026-06-23 16:32:33.552] [INFO] PalDiscordPlugin [NON-COMMERCIAL VERSION] - Free for personal/community servers only. Commercial use is prohibited.
-[2026-06-23 16:32:33.552] [INFO] ================================================================================
-[2026-06-23 16:32:33.552] [INFO] Config loaded from config.json
-[2026-06-23 16:32:33.552] [INFO] [PalDiscordPlugin] Copyright and API key validated
-[2026-06-23 16:32:33.552] [WARNING] Remote copyright check skipped (PALDISCORDPLUGIN_SKIP_REMOTE_CHECK is set)
-[2026-06-23 16:32:33.552] [INFO] Initializing core systems...
-[2026-06-23 16:32:33.553] [INFO] Initializing PalworldDiscordPlugin v3.2 (File Bridge mode)...
-[2026-06-23 16:32:33.553] [INFO] File bridge reader started
-[2026-06-23 16:32:33.553] [INFO] Discord bot polling disabled (set discord_to_game + bot_token + channel_id to enable)
-[2026-06-23 16:32:33.553] [INFO] PalworldDiscordPlugin initialized successfully
-[2026-06-23 16:32:33.553] [INFO] BridgeThread started
-[2026-06-23 16:32:33.553] [INFO] Bridge file: bridge_out.txt
-[2026-06-23 16:32:33.554] [INFO] Plugin loaded and ready!
-[2026-06-23 16:32:33.554] [INFO] ConsoleReader: Active (reading console buffer)
-[2026-06-23 16:32:33.554] [INFO] Discord Webhook: Not configured
-[2026-06-23 16:32:33.554] [INFO] ================================================================================
-[2026-06-23 16:32:35.591] [INFO] Bridge event: chat [Alice]
-[2026-06-23 16:32:35.591] [INFO] Game chat: Alice: Hi from game
-[2026-06-23 16:32:38.852] [INFO] ================================================================================
-[2026-06-23 16:32:38.852] [INFO] PalDiscordPlugin - Shutting down
-[2026-06-23 16:32:38.852] [INFO] Shutting down PalworldDiscordPlugin...
-[2026-06-23 16:32:38.852] [INFO] PalworldDiscordPlugin shutdown complete
-[2026-06-23 16:32:38.853] [INFO] Plugin unloaded successfully
-[2026-06-23 16:32:38.853] [INFO] ================================================================================
-[2026-06-23 16:32:38.853] [INFO] Logger shutting down
+[2026-06-23 16:40:03.887] [INFO] Logger initialized
+[2026-06-23 16:40:03.887] [INFO] ================================================================================
+[2026-06-23 16:40:03.887] [INFO] PalDiscordPlugin v4.0.2 - Loading (Non-Commercial)
+[2026-06-23 16:40:03.887] [INFO] Copyright 2026 RL-Dev.de
+[2026-06-23 16:40:03.887] [INFO] PalDiscordPlugin [NON-COMMERCIAL VERSION] - Free for personal/community servers only. Commercial use is prohibited.
+[2026-06-23 16:40:03.887] [INFO] ================================================================================
+[2026-06-23 16:40:03.887] [INFO] Config loaded from config.json
+[2026-06-23 16:40:03.888] [INFO] [PalDiscordPlugin] Copyright and API key validated
+[2026-06-23 16:40:03.888] [INFO] Performing remote copyright check at https://rl-dev.de/api/copyright-check
+[2026-06-23 16:40:04.155] [INFO] Remote copyright check response: {
+  "allowed": true,
+  "message": "startet",
+  "program": "PalDiscordPlugin",
+  "status": "ok"
+}
+
+[2026-06-23 16:40:04.155] [INFO] [PalDiscordPlugin] Remote copyright check passed
+[2026-06-23 16:40:04.155] [INFO] Initializing core systems...
+[2026-06-23 16:40:04.155] [INFO] Initializing PalworldDiscordPlugin v3.2 (File Bridge mode)...
+[2026-06-23 16:40:04.155] [INFO] File bridge reader started
+[2026-06-23 16:40:04.155] [INFO] Discord bot polling disabled (set discord_to_game + bot_token + channel_id to enable)
+[2026-06-23 16:40:04.155] [INFO] PalworldDiscordPlugin initialized successfully
+[2026-06-23 16:40:04.155] [INFO] BridgeThread started
+[2026-06-23 16:40:04.156] [INFO] Bridge file: bridge_out.txt
+[2026-06-23 16:40:04.156] [INFO] Plugin loaded and ready!
+[2026-06-23 16:40:04.156] [INFO] ConsoleReader: Active (reading console buffer)
+[2026-06-23 16:40:04.156] [INFO] Discord Webhook: Not configured
+[2026-06-23 16:40:04.156] [INFO] ================================================================================
+[2026-06-23 16:40:09.205] [INFO] ================================================================================
+[2026-06-23 16:40:09.205] [INFO] PalDiscordPlugin - Shutting down
+[2026-06-23 16:40:09.206] [INFO] Shutting down PalworldDiscordPlugin...
+[2026-06-23 16:40:09.206] [INFO] PalworldDiscordPlugin shutdown complete
+[2026-06-23 16:40:09.206] [INFO] Plugin unloaded successfully
+[2026-06-23 16:40:09.206] [INFO] ================================================================================
+[2026-06-23 16:40:09.206] [INFO] Logger shutting down

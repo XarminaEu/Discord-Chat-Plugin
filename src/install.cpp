@@ -9,7 +9,7 @@
 namespace {
 
 // Eingebettete Lua-Hauptdatei
-const char* LUA_MAIN = R"PDPDPD(-- PalworldDiscordPlugin v4.0.1 - UE4SS Lua Bridge
+const char* LUA_MAIN = R"PDPDPD(-- PalworldDiscordPlugin v4.0.2 - UE4SS Lua Bridge
 -- Auto-installiert vom C++ Plugin. Nicht manuell bearbeiten.
 
 local CONFIG = {
@@ -346,7 +346,7 @@ end
 -- ========================================================================
 -- Main
 -- ========================================================================
-Log("v4.0.1 Lua Bridge")
+Log("v4.0.2 Lua Bridge")
 Log("Hooks: Chat (BroadcastChatMessage), Join (POST-HOOK), Leave, Death")
 
 -- Load event toggles from config.json
@@ -397,10 +397,10 @@ Log("Ready.")
 
 const char* MOD_TXT =
 "PalworldDiscordBridge\n"
-"PalworldDiscordBridge v4.0.1\n"
+"PalworldDiscordBridge v4.0.2\n"
 "Discord <-> Palworld chat bridge\n"
 "PalworldDiscordPlugin\n"
-"4.0.1\n";
+"4.0.2\n";
 
 const char* DEFAULT_CONFIG =
 "{\n"

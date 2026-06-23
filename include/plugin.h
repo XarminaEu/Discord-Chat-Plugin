@@ -39,7 +39,7 @@ private:
     void BridgeThread();
     void PollThread();
 
-    static constexpr const char* VERSION = "4.0.1";
+    static constexpr const char* VERSION = "4.0.2";
     static constexpr const char* NAME = "PalworldDiscordPlugin";
 };
 

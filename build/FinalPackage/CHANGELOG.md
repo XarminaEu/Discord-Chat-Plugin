@@ -1,6 +1,6 @@
 # Changelog
 
-## v4.0.1 (2026-06-23)
+## v4.0.2 (2026-06-23)
 
 ### Security & Licensing
 - **Copyright protection** - Hardcoded XOR-encrypted API key, copyright, product name and non-commercial notice
