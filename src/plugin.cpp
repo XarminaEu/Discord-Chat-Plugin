@@ -107,7 +107,10 @@ std::string PalworldDiscordPlugin::HandleDiscordMessage(const std::string& body)
             return "{\"status\":\"error\",\"message\":\"missing author or content\"}";
         }
 
-        std::string incoming_file = FindIncomingBridgeFile();
+        std::string incoming_file = g_config.GetBridgeIncomingFile();
+        if (incoming_file.empty()) {
+            incoming_file = FindIncomingBridgeFile();
+        }
         std::ofstream f(incoming_file, std::ios::app);
         if (f.is_open()) {
             f << "discord|" << author << "|" << content << "\n";
@@ -141,7 +144,10 @@ static std::string FindBridgeFile() {
 
 void PalworldDiscordPlugin::BridgeThread() {
     g_logger.Info("BridgeThread started");
-    std::string bridge_file = FindBridgeFile();
+    std::string bridge_file = g_config.GetBridgeOutgoingFile();
+    if (bridge_file.empty()) {
+        bridge_file = FindBridgeFile();
+    }
     g_logger.Info("Bridge file: " + bridge_file);
 
     while (bridge_running_) {
@@ -225,7 +231,10 @@ static std::string FindIncomingBridgeFile() {
 
 void PalworldDiscordPlugin::PollThread() {
     g_logger.Info("PollThread started");
-    std::string incoming_file = FindIncomingBridgeFile();
+    std::string incoming_file = g_config.GetBridgeIncomingFile();
+    if (incoming_file.empty()) {
+        incoming_file = FindIncomingBridgeFile();
+    }
     g_logger.Info("Incoming bridge file: " + incoming_file);
 
     // Wait a bit before first poll to let everything initialize

@@ -137,17 +137,25 @@ static void InitializePlugin(HMODULE hModule) {
     g_logger.Info(validation_reason);
 
     // Validate against external rl-dev.de copyright check service.
-    std::string remote_reason;
-    if (!PerformRemoteCopyrightCheck(remote_reason)) {
-        PrintToConsole("[" + product + "] ERROR: " + remote_reason);
-        PrintToConsole("[" + product + "] Plugin startup aborted by remote copyright check.");
-        PrintToConsole("================================================================================");
-        g_logger.Critical(remote_reason);
-        g_logger.Critical("Plugin startup aborted by remote copyright check");
-        return;
+    // This can be skipped for local testing via the environment variable below.
+    char skip_remote_check[16] = {};
+    DWORD env_len = GetEnvironmentVariableA("PALDISCORDPLUGIN_SKIP_REMOTE_CHECK", skip_remote_check, sizeof(skip_remote_check));
+    if (env_len > 0 && (skip_remote_check[0] == '1' || skip_remote_check[0] == 't' || skip_remote_check[0] == 'T')) {
+        PrintToConsole("[" + product + "] WARNING: Remote copyright check skipped (test mode)");
+        g_logger.Warning("Remote copyright check skipped (PALDISCORDPLUGIN_SKIP_REMOTE_CHECK is set)");
+    } else {
+        std::string remote_reason;
+        if (!PerformRemoteCopyrightCheck(remote_reason)) {
+            PrintToConsole("[" + product + "] ERROR: " + remote_reason);
+            PrintToConsole("[" + product + "] Plugin startup aborted by remote copyright check.");
+            PrintToConsole("================================================================================");
+            g_logger.Critical(remote_reason);
+            g_logger.Critical("Plugin startup aborted by remote copyright check");
+            return;
+        }
+        PrintToConsole("[" + product + "] " + remote_reason);
+        g_logger.Info(remote_reason);
     }
-    PrintToConsole("[" + product + "] " + remote_reason);
-    g_logger.Info(remote_reason);
 
     g_logger.SetDebugMode(g_config.IsDebugMode());
     if (g_config.IsDebugMode()) {

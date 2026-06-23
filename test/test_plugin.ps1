@@ -3,6 +3,9 @@
 
 $ErrorActionPreference = "Stop"
 
+# Skip remote copyright check during local testing.
+$env:PALDISCORDPLUGIN_SKIP_REMOTE_CHECK = "1"
+
 $root = Split-Path -Parent $PSScriptRoot
 $dll = Join-Path $root "build\bin\Release\PalworldDiscordPlugin.dll"
 $testDir = $PSScriptRoot
@@ -32,7 +35,12 @@ public static class Native {
     public static extern IntPtr LoadLibrary(string path);
     [DllImport("kernel32.dll", SetLastError=true)]
     public static extern bool FreeLibrary(IntPtr hModule);
+    [DllImport("kernel32.dll", SetLastError=true, CharSet=CharSet.Ansi)]
+    public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+    [DllImport("kernel32.dll", SetLastError=true)]
+    public static extern int GetLastError();
 }
+public delegate int StartBridgeDelegate(IntPtr arg);
 "@
 
 Write-Host "[*] Loading plugin DLL..." -ForegroundColor Cyan
@@ -42,8 +50,21 @@ if ($h -eq [IntPtr]::Zero) {
     Pop-Location
     exit 1
 }
+
+# The plugin initializes via the StartBridge export, not DllMain.
+$proc = [Native]::GetProcAddress($h, "StartBridge")
+if ($proc -eq [IntPtr]::Zero) {
+    Write-Host "ERROR: StartBridge export not found" -ForegroundColor Red
+    Pop-Location
+    exit 1
+}
+
+Write-Host "[*] Calling StartBridge export..." -ForegroundColor Cyan
+$startBridge = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer($proc, [StartBridgeDelegate])
+$startBridge.Invoke([IntPtr]::Zero) | Out-Null
+
 Write-Host "[*] DLL loaded (handle $h). Waiting for HTTP server..." -ForegroundColor Green
-Start-Sleep -Seconds 2
+Start-Sleep -Seconds 3
 
 # Bypass any system proxy for localhost requests
 [System.Net.WebRequest]::DefaultWebProxy = $null
@@ -88,7 +109,7 @@ try {
     Start-Sleep -Milliseconds 300
     $inFile = Join-Path $testDir "bridge_in.txt"
     $content = if (Test-Path $inFile) { Get-Content $inFile -Raw } else { "" }
-    if ($content -match "Tester`tHello from Discord") {
+    if ($content -match "discord\|Tester\|Hello from Discord") {
         Write-Host "[Test 4] Bridge incoming file written correctly" -ForegroundColor Green
     } else {
         $pass = $false
@@ -102,10 +123,10 @@ try {
 # Test 5: game -> Discord: writing to outgoing bridge file triggers OnGameChatMessage
 try {
     $outFile = Join-Path $testDir "bridge_out.txt"
-    "Alice`tHi from game" | Out-File -FilePath $outFile -Append -Encoding ascii
-    # Wait for FileBridge watcher poll (300ms interval) + processing
-    Start-Sleep -Milliseconds 800
-    # The log line "[DEBUG] Game chat: Alice: Hi from game" should be visible.
+    "chat|Alice|Hi from game" | Out-File -FilePath $outFile -Append -Encoding ascii
+    # Wait for FileBridge watcher poll (500ms interval) + processing
+    Start-Sleep -Milliseconds 1200
+    # The log line "Game chat: Alice: Hi from game" should be visible.
     # We verify it after DLL unload when the log file handle is closed.
     $gameChatFound = $true
 } catch {
