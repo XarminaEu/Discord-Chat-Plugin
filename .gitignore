@@ -14,3 +14,6 @@ ue4ss/build/
 # hardcoded in src/copyright_crypto.cpp; the generator itself must not be public.
 tools/gen_crypto.py
 tools/gen_crypto_output.txt
+
+# Intermediate deploy staging directory (the .zip is the deliverable).
+build/DeployPackage/

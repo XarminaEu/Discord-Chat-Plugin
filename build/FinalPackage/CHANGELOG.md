@@ -1,5 +1,23 @@
 # Changelog
 
+## v4.0.1 (2026-06-23)
+
+### Security & Licensing
+- **Copyright protection** - Hardcoded XOR-encrypted API key, copyright, product name and non-commercial notice
+- **Remote copyright check** - Plugin validates against `https://rl-dev.de/api/copyright-check` at startup
+- **API key validation** - Plugin refuses to start if the API key in `config.json` does not match the hardcoded value
+- **Generator tool removed from repo** - `tools/gen_crypto.py` (contains plaintext secrets) is no longer public
+
+### Changes
+- **HTTP server removed** - Plugin no longer starts a local web server; Discord -> game uses the file bridge only
+- **Copyright string updated** - Remote check now uses `Copyright 2026 RL-Dev.de`
+- **HTTP client improved** - Reads response body on non-2xx status codes to parse server error reasons
+- **README updated** - Removed API key details from public documentation
+- **LICENSE updated** - Reflects non-commercial license and remote copyright check
+- **Deployment zip added** - `PalworldDiscordPlugin-Deploy-v4.0.1.zip` unpacks to `Pal/Binaries/Win64/`
+
+---
+
 ## v4.0.0 (2026-06-18)
 
 ### Major Changes
