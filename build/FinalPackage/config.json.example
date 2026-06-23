@@ -1,0 +1,30 @@
+{
+  "discord": {
+    "webhook_url": "https://discord.com/api/webhooks/DEINE/WEBHOOK_URL",
+    "bot_token": "",
+    "channel_id": "",
+    "bot_name": "Server Chat",
+    "language": "en",
+    "discord_to_game": false,
+    "poll_interval": 5
+  },
+  "plugin": {
+    "debug_mode": true,
+    "log_file": "PalworldDiscordPlugin.log",
+    "http_port": 8765,
+    "http_bind": "127.0.0.1",
+    "max_message_length": 2000,
+    "api_key": ""
+  },
+  "events": {
+    "chat": true,
+    "join": true,
+    "leave": true,
+    "death": true
+  },
+  "bridge": {
+    "enabled": true,
+    "incoming_file": "PalDiscordBridge_in.txt",
+    "outgoing_file": "PalDiscordBridge_out.txt"
+  }
+}

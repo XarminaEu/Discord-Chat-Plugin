@@ -1,0 +1,5 @@
+PalworldDiscordBridge
+PalworldDiscordBridge v1.0
+Bidirectional Discord <-> Palworld chat bridge via file IPC
+PalworldDiscordPlugin
+1.0

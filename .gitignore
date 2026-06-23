@@ -1,0 +1,11 @@
+# User-specific IDE settings
+.vs/
+.vscode/settings.json
+.vscode/launch.json
+
+# UE4SS superbuild (large external repo, not part of this project)
+ue4ss/RE-UE4SS/
+ue4ss/build/
+
+# Note: build artifacts, DLLs, logs, old release zips and config.json are
+# intentionally NOT ignored so they can be committed/published as requested.

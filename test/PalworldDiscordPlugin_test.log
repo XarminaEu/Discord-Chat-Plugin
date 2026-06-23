@@ -1,0 +1,35 @@
+[2026-06-16 18:57:22.133] [INFO] Logger initialized
+[2026-06-16 18:57:22.133] [INFO] ================================================================================
+[2026-06-16 18:57:22.133] [INFO] PalworldDiscordPlugin v1.0.0 - Loading
+[2026-06-16 18:57:22.133] [INFO] ================================================================================
+[2026-06-16 18:57:22.133] [INFO] Config loaded from config.json
+[2026-06-16 18:57:22.133] [INFO] Initializing core systems...
+[2026-06-16 18:57:22.134] [INFO] Initializing PalworldDiscordPlugin...
+[2026-06-16 18:57:22.134] [INFO] Initializing chat hook...
+[2026-06-16 18:57:22.134] [INFO] Chat hook initialized
+[2026-06-16 18:57:22.134] [INFO] Starting HTTP server on port 9876
+[2026-06-16 18:57:22.135] [INFO] HTTP server started
+[2026-06-16 18:57:22.135] [INFO] FileBridge started (in='bridge_in.txt', out='bridge_out.txt')
+[2026-06-16 18:57:22.135] [INFO] PalworldDiscordPlugin initialized successfully
+[2026-06-16 18:57:22.136] [INFO] Plugin loaded and ready!
+[2026-06-16 18:57:22.136] [INFO] HTTP Server: 127.0.0.1:9876
+[2026-06-16 18:57:22.136] [INFO] Chat Hook: Active
+[2026-06-16 18:57:22.136] [INFO] Discord Webhook: Not configured
+[2026-06-16 18:57:22.136] [INFO] ================================================================================
+[2026-06-16 18:57:22.136] [DEBUG] HTTP server thread started
+[2026-06-16 18:57:22.139] [INFO] HTTP server listening on 127.0.0.1:9876
+[2026-06-16 18:57:24.522] [INFO] Discord -> game: Tester: Hello from Discord
+[2026-06-16 18:57:24.523] [DEBUG] Broadcasting message: Tester: Hello from Discord
+[2026-06-16 18:57:24.593] [ERROR] Invalid HTTP request body: Invalid null literal
+[2026-06-16 18:57:25.220] [DEBUG] Game chat: Alice: Hi from game
+[2026-06-16 18:57:25.744] [INFO] ================================================================================
+[2026-06-16 18:57:25.744] [INFO] PalworldDiscordPlugin - Shutting down
+[2026-06-16 18:57:25.744] [INFO] Shutting down PalworldDiscordPlugin...
+[2026-06-16 18:57:25.744] [INFO] FileBridge stopped
+[2026-06-16 18:57:25.745] [INFO] Stopping HTTP server...
+[2026-06-16 18:57:25.745] [INFO] HTTP server stopped
+[2026-06-16 18:57:25.745] [INFO] Shutting down chat hook...
+[2026-06-16 18:57:25.745] [INFO] PalworldDiscordPlugin shutdown complete
+[2026-06-16 18:57:25.745] [INFO] Plugin unloaded successfully
+[2026-06-16 18:57:25.745] [INFO] ================================================================================
+[2026-06-16 18:57:25.745] [INFO] Logger shutting down

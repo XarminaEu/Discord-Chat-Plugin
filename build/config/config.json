@@ -1,0 +1,27 @@
+{
+  "discord": {
+    "webhook_url": "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN",
+    "bot_token": "YOUR_BOT_TOKEN",
+    "server_id": "YOUR_SERVER_ID",
+    "channel_id": "YOUR_CHANNEL_ID"
+  },
+  "plugin": {
+    "debug_mode": true,
+    "log_file": "PalworldDiscordPlugin.log",
+    "http_port": 8765,
+    "http_bind": "127.0.0.1",
+    "max_message_length": 2000,
+    "api_key": "PalDiscordPlugin b75c2541e6eb17db69d6cf441827e19b91c13a7444eb39e89e9b7dc635b4c717"
+  },
+  "ue4ss": {
+    "chat_recv_function": "",
+    "chat_message_param": "",
+    "chat_sender_param": "",
+    "chat_send_function": ""
+  },
+  "bridge": {
+    "enabled": true,
+    "incoming_file": "PalDiscordBridge_in.txt",
+    "outgoing_file": "PalDiscordBridge_out.txt"
+  }
+}

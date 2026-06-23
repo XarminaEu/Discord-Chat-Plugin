@@ -1,0 +1,21 @@
+{
+  "discord": {
+    "webhook_url": "",
+    "bot_token": "",
+    "server_id": "",
+    "channel_id": ""
+  },
+  "plugin": {
+    "debug_mode": true,
+    "log_file": "PalworldDiscordPlugin_test.log",
+    "http_port": 9876,
+    "http_bind": "127.0.0.1",
+    "max_message_length": 2000,
+    "api_key": ""
+  },
+  "bridge": {
+    "enabled": true,
+    "incoming_file": "bridge_in.txt",
+    "outgoing_file": "bridge_out.txt"
+  }
+}

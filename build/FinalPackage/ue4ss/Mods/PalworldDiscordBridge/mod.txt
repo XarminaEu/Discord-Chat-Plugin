@@ -1,0 +1,5 @@
+PalworldDiscordBridge
+PalworldDiscordBridge v1.1
+Discord <-> Palworld chat bridge (Wine/Proton compatible)
+PalworldDiscordPlugin
+1.1

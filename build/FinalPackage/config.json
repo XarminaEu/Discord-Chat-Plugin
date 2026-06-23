@@ -1,0 +1,18 @@
+{
+  "discord": {
+    "webhook_url": "https://discord.com/api/webhooks/1516590472091533433/zKKqvFuQWW9bwTfFes118cX5yPzHFhUEsRiHK5EH08TaG9Dr6eqCiKTcem2d7P2j41bF"
+  },
+  "plugin": {
+    "debug_mode": true,
+    "log_file": "PalworldDiscordPlugin.log",
+    "http_port": 0,
+    "http_bind": "127.0.0.1",
+    "max_message_length": 2000,
+    "api_key": ""
+  },
+  "bridge": {
+    "enabled": true,
+    "incoming_file": "PalDiscordBridge_in.txt",
+    "outgoing_file": "PalDiscordBridge_out.txt"
+  }
+}
