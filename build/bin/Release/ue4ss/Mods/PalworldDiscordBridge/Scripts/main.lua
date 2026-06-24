@@ -1,8 +1,8 @@
--- PalworldDiscordPlugin v4.0.2 - UE4SS Lua Bridge
+-- PalworldDiscordPlugin v4.0.3 - UE4SS Lua Bridge
 -- Auto-installiert vom C++ Plugin. Nicht manuell bearbeiten.
 
 local CONFIG = {
-    dll_path = "ue4ss/Mods/PalworldDiscordBridge/dlls/PalworldDiscordPlugin.dll",
+    dll_path = "PalworldDiscordPlugin.dll",
 }
 
 local function Log(msg)
@@ -335,7 +335,7 @@ end
 -- ========================================================================
 -- Main
 -- ========================================================================
-Log("v4.0.2 Lua Bridge")
+Log("v4.0.3 Lua Bridge")
 Log("Hooks: Chat (BroadcastChatMessage), Join (POST-HOOK), Leave, Death")
 
 -- Load event toggles from config.json
