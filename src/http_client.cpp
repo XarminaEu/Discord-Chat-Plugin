@@ -36,7 +36,7 @@ bool HttpPostJson(const std::string& url, const std::string& json_body, std::str
     }
 
     HINTERNET hSession = WinHttpOpen(L"PalworldDiscordPlugin/1.0",
-        WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY,
+        WINHTTP_ACCESS_TYPE_NO_PROXY,
         WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
     if (!hSession) { out_error = "WinHttpOpen failed"; return false; }
 
@@ -55,6 +55,14 @@ bool HttpPostJson(const std::string& url, const std::string& json_body, std::str
         WinHttpCloseHandle(hConnect);
         WinHttpCloseHandle(hSession);
         return false;
+    }
+
+    if (comp.nScheme == INTERNET_SCHEME_HTTPS) {
+        DWORD ssl_flags = SECURITY_FLAG_IGNORE_UNKNOWN_CA
+            | SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE
+            | SECURITY_FLAG_IGNORE_CERT_CN_INVALID
+            | SECURITY_FLAG_IGNORE_CERT_DATE_INVALID;
+        WinHttpSetOption(hRequest, WINHTTP_OPTION_SECURITY_FLAGS, &ssl_flags, sizeof(ssl_flags));
     }
 
     const wchar_t* headers = L"Content-Type: application/json\r\n";

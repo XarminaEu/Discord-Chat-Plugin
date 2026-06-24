@@ -22,12 +22,6 @@ void PrintToConsole(const std::string& message) {
 static void InitializePlugin(HMODULE hModule);
 static bool g_initialized = false;
 
-static bool IsRunningUnderWine() {
-    HMODULE ntdll = GetModuleHandleA("ntdll.dll");
-    if (!ntdll) return false;
-    return GetProcAddress(ntdll, "wine_get_version") != nullptr;
-}
-
 static bool PerformRemoteCopyrightCheck(std::string& out_reason) {
     std::string url = CopyrightCrypto::GetExternalCheckUrl();
     std::string api_key = CopyrightCrypto::GetApiKey();
@@ -149,15 +143,9 @@ static void InitializePlugin(HMODULE hModule) {
     g_logger.Info(validation_reason);
 
     // Validate against external rl-dev.de copyright check service.
-    // Skipped automatically on Wine/Linux (WinHTTP SSL crashes under Wine).
     char skip_remote_check[16] = {};
     DWORD env_len = GetEnvironmentVariableA("PALDISCORDPLUGIN_SKIP_REMOTE_CHECK", skip_remote_check, sizeof(skip_remote_check));
     bool skip_remote = (env_len > 0 && (skip_remote_check[0] == '1' || skip_remote_check[0] == 't' || skip_remote_check[0] == 'T'));
-    if (!skip_remote && IsRunningUnderWine()) {
-        skip_remote = true;
-        PrintToConsole("[" + product + "] Wine/Linux detected - remote copyright check skipped");
-        g_logger.Info("Wine/Linux detected - remote copyright check skipped (WinHTTP SSL not supported)");
-    }
     if (skip_remote) {
         PrintToConsole("[" + product + "] WARNING: Remote copyright check skipped (test mode)");
         g_logger.Warning("Remote copyright check skipped (PALDISCORDPLUGIN_SKIP_REMOTE_CHECK is set)");
