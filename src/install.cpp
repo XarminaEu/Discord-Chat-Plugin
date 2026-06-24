@@ -468,11 +468,32 @@ bool CreateDirRecursive(const std::string& path) {
 bool SelfInstall(const std::string& game_root) {
     bool installed_any = false;
 
-    // 1. PalworldDiscordConfig-Ordner + config.json erstellen (nur wenn nicht vorhanden)
+    // 1. PalworldDiscordConfig-Ordner + config.json erstellen/reparieren
+    std::cout << "[PalworldDiscordPlugin] game_root: " << game_root << std::endl;
     std::string config_dir = game_root + "\\PalworldDiscordConfig";
-    CreateDirRecursive(config_dir);
+    if (!CreateDirRecursive(config_dir)) {
+        std::cerr << "[PalworldDiscordPlugin] FEHLER: Konnte Ordner nicht erstellen: " << config_dir << " (Error: " << GetLastError() << ")" << std::endl;
+    }
     std::string config_path = config_dir + "\\config.json";
-    if (!FileExists(config_path)) {
+    std::cout << "[PalworldDiscordPlugin] config_path: " << config_path << " exists=" << FileExists(config_path) << std::endl;
+
+    // Erstellen wenn fehlend ODER api_key ist leer (z.B. leere Deploy-Config)
+    bool need_config = !FileExists(config_path);
+    if (!need_config) {
+        std::ifstream check(config_path);
+        if (check.is_open()) {
+            std::string content((std::istreambuf_iterator<char>(check)), std::istreambuf_iterator<char>());
+            if (content.find("\"api_key\": \"\"")	!= std::string::npos ||
+                content.find("\"api_key\":\"\"")	!= std::string::npos ||
+                content.find("api_key") == std::string::npos) {
+                need_config = true;
+                std::cout << "[PalworldDiscordPlugin] config.json vorhanden aber api_key fehlt - wird repariert." << std::endl;
+            }
+        } else {
+            need_config = true;
+        }
+    }
+    if (need_config) {
         std::string default_config = DEFAULT_CONFIG;
         std::string placeholder = "\"api_key\": \"\"";
         std::string actual = "\"api_key\": \"" + CopyrightCrypto::GetApiKey() + "\"";
@@ -481,10 +502,10 @@ bool SelfInstall(const std::string& game_root) {
             default_config.replace(pos, placeholder.size(), actual);
         }
         if (WriteTextFile(config_path, default_config.c_str())) {
-            std::cout << "[PalworldDiscordPlugin] config.json erstellt: " << config_path << std::endl;
+            std::cout << "[PalworldDiscordPlugin] config.json erstellt/repariert: " << config_path << std::endl;
             installed_any = true;
         } else {
-            std::cerr << "[PalworldDiscordPlugin] WARNUNG: Konnte config.json nicht erstellen." << std::endl;
+            std::cerr << "[PalworldDiscordPlugin] FEHLER: Konnte config.json nicht schreiben: " << config_path << " (Error: " << GetLastError() << ")" << std::endl;
         }
     }
 
