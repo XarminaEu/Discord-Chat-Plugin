@@ -483,6 +483,13 @@ bool SelfInstall(const std::string& game_root) {
         std::ifstream check(config_path);
         if (check.is_open()) {
             std::string content((std::istreambuf_iterator<char>(check)), std::istreambuf_iterator<char>());
+            // Strip UTF-8 BOM if present
+            if (content.size() >= 3 &&
+                (unsigned char)content[0] == 0xEF &&
+                (unsigned char)content[1] == 0xBB &&
+                (unsigned char)content[2] == 0xBF) {
+                content = content.substr(3);
+            }
             if (content.find("\"api_key\": \"\"")	!= std::string::npos ||
                 content.find("\"api_key\":\"\"")	!= std::string::npos ||
                 content.find("api_key") == std::string::npos) {

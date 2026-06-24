@@ -24,9 +24,18 @@ bool Config::LoadFromFile(const std::string& filepath) {
 
     std::stringstream buffer;
     buffer << file.rdbuf();
+    std::string raw = buffer.str();
+
+    // Strip UTF-8 BOM if present (PowerShell Set-Content -Encoding UTF8 adds one)
+    if (raw.size() >= 3 &&
+        (unsigned char)raw[0] == 0xEF &&
+        (unsigned char)raw[1] == 0xBB &&
+        (unsigned char)raw[2] == 0xBF) {
+        raw = raw.substr(3);
+    }
 
     try {
-        Json root = Json::parse(buffer.str());
+        Json root = Json::parse(raw);
         Json discord = root.get_child("discord");
         Json plugin = root.get_child("plugin");
 

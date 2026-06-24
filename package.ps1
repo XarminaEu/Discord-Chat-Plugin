@@ -69,7 +69,8 @@ $cfgContent = @'
 }
 '@
 
-Set-Content -Path (Join-Path $cfgDir "config.json") -Value $cfgContent -Encoding UTF8
+$cfgPath = Join-Path $cfgDir "config.json"
+[System.IO.File]::WriteAllText($cfgPath, $cfgContent, [System.Text.UTF8Encoding]::new($false))
 Write-Host "[OK] PalworldDiscordConfig\config.json" -ForegroundColor Green
 
 # ── 3. UE4SS Lua-Mod ─────────────────────────────────────────────────────────
@@ -149,7 +150,7 @@ VERSION
   v$VERSION - PalworldDiscordConfig Edition
   Copyright 2026 RL-Dev.de
 "@
-Set-Content -Path (Join-Path $STAGE "README.txt") -Value $readmeTxt -Encoding UTF8
+[System.IO.File]::WriteAllText((Join-Path $STAGE "README.txt"), $readmeTxt, [System.Text.UTF8Encoding]::new($false))
 Write-Host "[OK] README.txt" -ForegroundColor Green
 
 # ── 5. ZIP erstellen ──────────────────────────────────────────────────────────
