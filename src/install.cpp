@@ -14,7 +14,7 @@ const char* LUA_MAIN = R"PDPDPD(-- PalworldDiscordPlugin v4.0.3 - UE4SS Lua Brid
 -- Auto-installiert vom C++ Plugin. Nicht manuell bearbeiten.
 
 local CONFIG = {
-    dll_path = "ue4ss/Mods/PalworldDiscordBridge/dlls/PalworldDiscordPlugin.dll",
+    dll_path = "PalworldDiscordPlugin.dll",
 }
 
 local function Log(msg)
