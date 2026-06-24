@@ -1,11 +1,15 @@
 #include "http_client.h"
 
+#include <winsock2.h>
+#include <ws2tcpip.h>
 #include <windows.h>
 #include <winhttp.h>
 #include <string>
 #include <vector>
+#include <sstream>
 
 #pragma comment(lib, "winhttp.lib")
+#pragma comment(lib, "ws2_32.lib")
 
 static std::wstring ToWide(const std::string& str) {
     if (str.empty()) return std::wstring();
@@ -15,9 +19,119 @@ static std::wstring ToWide(const std::string& str) {
     return result;
 }
 
+static bool IsWine() {
+    HMODULE ntdll = GetModuleHandleA("ntdll.dll");
+    return ntdll && GetProcAddress(ntdll, "wine_get_version") != nullptr;
+}
+
+// Winsock-based plain HTTP POST - works reliably on Wine/Linux
+static bool HttpPostJsonWinsock(const std::string& host, const std::string& path,
+    const std::string& json_body, std::string& out_response, std::string& out_error) {
+
+    WSADATA wsa;
+    if (WSAStartup(MAKEWORD(2,2), &wsa) != 0) {
+        out_error = "WSAStartup failed";
+        return false;
+    }
+
+    struct addrinfo hints = {}, *res = nullptr;
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    if (getaddrinfo(host.c_str(), "80", &hints, &res) != 0) {
+        WSACleanup();
+        out_error = "DNS lookup failed for " + host;
+        return false;
+    }
+
+    SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock == INVALID_SOCKET) {
+        freeaddrinfo(res);
+        WSACleanup();
+        out_error = "socket() failed";
+        return false;
+    }
+
+    DWORD timeout_ms = 8000;
+    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout_ms, sizeof(timeout_ms));
+    setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, (char*)&timeout_ms, sizeof(timeout_ms));
+
+    if (connect(sock, res->ai_addr, (int)res->ai_addrlen) != 0) {
+        freeaddrinfo(res);
+        closesocket(sock);
+        WSACleanup();
+        out_error = "connect() failed to " + host + ":80";
+        return false;
+    }
+    freeaddrinfo(res);
+
+    std::ostringstream req;
+    req << "POST " << path << " HTTP/1.1\r\n"
+        << "Host: " << host << "\r\n"
+        << "Content-Type: application/json\r\n"
+        << "Content-Length: " << json_body.size() << "\r\n"
+        << "Connection: close\r\n"
+        << "\r\n"
+        << json_body;
+    std::string request = req.str();
+
+    if (send(sock, request.c_str(), (int)request.size(), 0) == SOCKET_ERROR) {
+        closesocket(sock);
+        WSACleanup();
+        out_error = "send() failed";
+        return false;
+    }
+
+    std::string raw;
+    char buf[4096];
+    int received;
+    while ((received = recv(sock, buf, sizeof(buf), 0)) > 0)
+        raw.append(buf, received);
+
+    closesocket(sock);
+    WSACleanup();
+
+    if (raw.empty()) {
+        out_error = "empty response from server";
+        return false;
+    }
+
+    // Parse status line
+    size_t sp1 = raw.find(' ');
+    size_t sp2 = raw.find(' ', sp1 + 1);
+    int status = 0;
+    if (sp1 != std::string::npos && sp2 != std::string::npos)
+        status = std::stoi(raw.substr(sp1 + 1, sp2 - sp1 - 1));
+
+    // Extract body (after \r\n\r\n)
+    size_t body_pos = raw.find("\r\n\r\n");
+    if (body_pos != std::string::npos)
+        out_response = raw.substr(body_pos + 4);
+    else
+        out_response = raw;
+
+    if (status >= 200 && status < 300)
+        return true;
+
+    out_error = "HTTP status " + std::to_string(status);
+    return false;
+}
+
 bool HttpPostJson(const std::string& url, const std::string& json_body, std::string& out_response, std::string& out_error) {
     out_response.clear();
     out_error.clear();
+
+    // On Wine: skip WinHTTP (HTTPS unreliable) and use Winsock HTTP directly
+    if (IsWine()) {
+        // Extract host and path from url for Winsock fallback
+        std::string u = url;
+        std::string scheme;
+        if (u.substr(0, 8) == "https://") { scheme = "https"; u = u.substr(8); }
+        else if (u.substr(0, 7) == "http://") { scheme = "http"; u = u.substr(7); }
+        size_t slash = u.find('/');
+        std::string host = (slash != std::string::npos) ? u.substr(0, slash) : u;
+        std::string path = (slash != std::string::npos) ? u.substr(slash) : "/";
+        return HttpPostJsonWinsock(host, path, json_body, out_response, out_error);
+    }
 
     std::wstring wurl = ToWide(url);
 
