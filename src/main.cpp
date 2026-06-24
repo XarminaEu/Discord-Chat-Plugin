@@ -110,8 +110,9 @@ static void InitializePlugin(HMODULE hModule) {
     // Selbstinstallation: fehlende Dateien erstellen
     SelfInstall(game_root);
 
-    if (!g_config.LoadFromFile("PalworldDiscordConfig\\config.json")) {
-        PrintToConsole("[" + product + "] WARNING: PalworldDiscordConfig\\config.json not found, using defaults");
+    std::string config_path = game_root + "\\PalworldDiscordConfig\\config.json";
+    if (!g_config.LoadFromFile(config_path)) {
+        PrintToConsole("[" + product + "] WARNING: " + config_path + " not found, using defaults");
     } else {
         PrintToConsole("[" + product + "] Config loaded successfully");
     }
