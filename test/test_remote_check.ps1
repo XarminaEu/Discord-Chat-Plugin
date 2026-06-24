@@ -5,7 +5,9 @@ $root = Split-Path -Parent $PSScriptRoot
 $dll = Join-Path $root "build\bin\Release\PalworldDiscordPlugin.dll"
 $testDir = $PSScriptRoot
 
-Copy-Item (Join-Path $testDir "test_config.json") (Join-Path $testDir "config.json") -Force
+$configDir = Join-Path $testDir "PalworldDiscordConfig"
+New-Item -ItemType Directory -Force -Path $configDir | Out-Null
+Copy-Item (Join-Path $testDir "test_config.json") (Join-Path $configDir "config.json") -Force
 Remove-Item (Join-Path $testDir "PalworldDiscordPlugin_test.log") -ErrorAction SilentlyContinue
 
 Push-Location $testDir

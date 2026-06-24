@@ -96,7 +96,7 @@ static void InitializePlugin(HMODULE hModule) {
 
     PrintToConsole("================================================================================");
     PrintToConsole("[" + product + "] Loading plugin...");
-    PrintToConsole("[" + product + "] Version: 4.0.2 [Non-Commercial]");
+    PrintToConsole("[" + product + "] Version: 4.0.3 [Non-Commercial]");
     PrintToConsole("[" + product + "] " + copyright);
     PrintToConsole("[" + product + "] " + notice);
     PrintToConsole("================================================================================");
@@ -110,15 +110,15 @@ static void InitializePlugin(HMODULE hModule) {
     // Selbstinstallation: fehlende Dateien erstellen
     SelfInstall(game_root);
 
-    if (!g_config.LoadFromFile("config.json")) {
-        PrintToConsole("[" + product + "] WARNING: config.json not found, using defaults");
+    if (!g_config.LoadFromFile("PalworldDiscordConfig\\config.json")) {
+        PrintToConsole("[" + product + "] WARNING: PalworldDiscordConfig\\config.json not found, using defaults");
     } else {
         PrintToConsole("[" + product + "] Config loaded successfully");
     }
 
     g_logger.Initialize(g_config.GetLogFile());
     g_logger.Info("================================================================================");
-    g_logger.Info(product + " v4.0.2 - Loading (Non-Commercial)");
+    g_logger.Info(product + " v4.0.3 - Loading (Non-Commercial)");
     g_logger.Info(copyright);
     g_logger.Info(notice);
     g_logger.Info("================================================================================");

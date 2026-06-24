@@ -76,19 +76,26 @@ if (Test-Path $ModsTxt) {
     Write-Host "[OK] mods.txt erstellt" -ForegroundColor Green
 }
 
-# 6. config.json Beispiel erstellen (falls noch nicht vorhanden)
-$ConfigPath = Join-Path $Win64 "config.json"
+# 6. PalworldDiscordConfig-Ordner + config.json anlegen (nur wenn nicht vorhanden)
+$ConfigDir = Join-Path $Win64 "PalworldDiscordConfig"
+New-Item -ItemType Directory -Force -Path $ConfigDir | Out-Null
+$ConfigPath = Join-Path $ConfigDir "config.json"
 if (-not (Test-Path $ConfigPath)) {
     $ConfigJson = @'{
   "discord": {
-    "webhook_url": "https://discord.com/api/webhooks/DEIN_WEBHOK_HIER"
+    "webhook_url": ""
   },
   "plugin": {
-    "debug_mode": true,
+    "debug_mode": false,
     "log_file": "PalworldDiscordPlugin.log",
-    "http_port": 8765,
-    "http_bind": "127.0.0.1",
+    "max_message_length": 2000,
     "api_key": ""
+  },
+  "events": {
+    "chat": true,
+    "join": true,
+    "leave": true,
+    "death": true
   },
   "bridge": {
     "enabled": true,
@@ -98,9 +105,9 @@ if (-not (Test-Path $ConfigPath)) {
 }
 '@
     Set-Content -Path $ConfigPath -Value $ConfigJson -Encoding UTF8
-    Write-Host "[OK] config.json erstellt (bitte Webhook-URL eintragen!)" -ForegroundColor Yellow
+    Write-Host "[OK] PalworldDiscordConfig\config.json erstellt (bitte Webhook-URL eintragen!)" -ForegroundColor Yellow
 } else {
-    Write-Host "[OK] config.json existierte bereits" -ForegroundColor Green
+    Write-Host "[OK] PalworldDiscordConfig\config.json existierte bereits" -ForegroundColor Green
 }
 
 Write-Host ""
@@ -111,6 +118,8 @@ Write-Host ""
 Write-Host "Naechste Schritte:" -ForegroundColor White
 Write-Host "  1. Oeffne $ConfigPath" -ForegroundColor Gray
 Write-Host "     -> Trage deine Discord-Webhook-URL ein." -ForegroundColor Gray
+Write-Host "  1b. (Nur falls noch nicht aktiviert) mods.txt pruefen:" -ForegroundColor Gray
+Write-Host "     -> $(Join-Path $Ue4ssMods 'mods.txt') muss enthalten: PalworldDiscordBridge : 1" -ForegroundColor Gray
 Write-Host "  2. Starte Palworld/Server neu." -ForegroundColor Gray
 Write-Host "  3. Im Spiel chatten -> Discord-Webhook sollte ankommen." -ForegroundColor Gray
 Write-Host ""

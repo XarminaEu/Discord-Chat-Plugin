@@ -25,7 +25,7 @@ local function LoadConfig()
         Log("json module not available, using defaults")
         return
     end
-    local path = "ue4ss/Mods/PalworldDiscordBridge/dlls/config.json"
+    local path = "PalworldDiscordConfig/config.json"
     local f = io.open(path, "r")
     if not f then
         Log("config.json not found, using defaults")

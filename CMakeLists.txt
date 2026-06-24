@@ -130,6 +130,6 @@ install(TARGETS PalworldDiscordPlugin
 # Copy config file to build directory
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/config/config.json
-    ${CMAKE_BINARY_DIR}/config/config.json
+    ${CMAKE_BINARY_DIR}/bin/Release/PalworldDiscordConfig/config.json
     COPYONLY
 )

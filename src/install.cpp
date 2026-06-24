@@ -1,5 +1,6 @@
 #include "install.h"
 #include "logger.h"
+#include "copyright_crypto.h"
 #include <windows.h>
 #include <fstream>
 #include <iostream>
@@ -9,7 +10,7 @@
 namespace {
 
 // Eingebettete Lua-Hauptdatei
-const char* LUA_MAIN = R"PDPDPD(-- PalworldDiscordPlugin v4.0.2 - UE4SS Lua Bridge
+const char* LUA_MAIN = R"PDPDPD(-- PalworldDiscordPlugin v4.0.3 - UE4SS Lua Bridge
 -- Auto-installiert vom C++ Plugin. Nicht manuell bearbeiten.
 
 local CONFIG = {
@@ -36,7 +37,7 @@ local function LoadConfig()
         Log("json module not available, using defaults")
         return
     end
-    local path = "ue4ss/Mods/PalworldDiscordBridge/dlls/config.json"
+    local path = "PalworldDiscordConfig/config.json"
     local f = io.open(path, "r")
     if not f then
         Log("config.json not found, using defaults")
@@ -346,7 +347,7 @@ end
 -- ========================================================================
 -- Main
 -- ========================================================================
-Log("v4.0.2 Lua Bridge")
+Log("v4.0.3 Lua Bridge")
 Log("Hooks: Chat (BroadcastChatMessage), Join (POST-HOOK), Leave, Death")
 
 -- Load event toggles from config.json
@@ -397,10 +398,10 @@ Log("Ready.")
 
 const char* MOD_TXT =
 "PalworldDiscordBridge\n"
-"PalworldDiscordBridge v4.0.2\n"
+"PalworldDiscordBridge v4.0.3\n"
 "Discord <-> Palworld chat bridge\n"
 "PalworldDiscordPlugin\n"
-"4.0.2\n";
+"4.0.3\n";
 
 const char* DEFAULT_CONFIG =
 "{\n"
@@ -446,6 +447,11 @@ bool DirExists(const std::string& path) {
     return (attr != INVALID_FILE_ATTRIBUTES) && (attr & FILE_ATTRIBUTE_DIRECTORY);
 }
 
+bool FileExists(const std::string& path) {
+    DWORD attr = GetFileAttributesA(path.c_str());
+    return (attr != INVALID_FILE_ATTRIBUTES) && !(attr & FILE_ATTRIBUTE_DIRECTORY);
+}
+
 bool CreateDirRecursive(const std::string& path) {
     if (path.empty()) return false;
     size_t pos = 0;
@@ -462,13 +468,24 @@ bool CreateDirRecursive(const std::string& path) {
 bool SelfInstall(const std::string& game_root) {
     bool installed_any = false;
 
-    // 1. Default config.json erstellen/ueberschreiben
-    std::string config_path = game_root + "\\config.json";
-    if (WriteTextFile(config_path, DEFAULT_CONFIG)) {
-        std::cout << "[PalworldDiscordPlugin] config.json erstellt/aktualisiert: " << config_path << std::endl;
-        installed_any = true;
-    } else {
-        std::cerr << "[PalworldDiscordPlugin] WARNUNG: Konnte config.json nicht erstellen." << std::endl;
+    // 1. PalworldDiscordConfig-Ordner + config.json erstellen (nur wenn nicht vorhanden)
+    std::string config_dir = game_root + "\\PalworldDiscordConfig";
+    CreateDirRecursive(config_dir);
+    std::string config_path = config_dir + "\\config.json";
+    if (!FileExists(config_path)) {
+        std::string default_config = DEFAULT_CONFIG;
+        std::string placeholder = "\"api_key\": \"\"";
+        std::string actual = "\"api_key\": \"" + CopyrightCrypto::GetApiKey() + "\"";
+        size_t pos = default_config.find(placeholder);
+        if (pos != std::string::npos) {
+            default_config.replace(pos, placeholder.size(), actual);
+        }
+        if (WriteTextFile(config_path, default_config.c_str())) {
+            std::cout << "[PalworldDiscordPlugin] config.json erstellt: " << config_path << std::endl;
+            installed_any = true;
+        } else {
+            std::cerr << "[PalworldDiscordPlugin] WARNUNG: Konnte config.json nicht erstellen." << std::endl;
+        }
     }
 
     // 2. UE4SS Lua-Mod Dateien erstellen, wenn nicht vorhanden
@@ -477,7 +494,7 @@ bool SelfInstall(const std::string& game_root) {
     std::string lua_path = scripts_dir + "\\main.lua";
     std::string modtxt_path = mod_dir + "\\mod.txt";
 
-    // Always update Lua files to ensure latest version
+    // Always overwrite Lua files to ensure latest version
     if (!CreateDirRecursive(mod_dir)) {
         std::cerr << "[PalworldDiscordPlugin] WARNUNG: Konnte Mod-Verzeichnis nicht erstellen: " << mod_dir << " (Error: " << GetLastError() << ")" << std::endl;
     }
@@ -506,7 +523,7 @@ bool SelfInstall(const std::string& game_root) {
         std::cerr << "[PalworldDiscordPlugin] WARNUNG: Konnte mod.txt nicht schreiben! (Error: " << GetLastError() << ")" << std::endl;
     }
 
-    // 3. mods.txt aktualisieren
+    // 3. mods.txt aktualisieren (Hinweis fuer User)
     std::string mods_txt = game_root + "\\ue4ss\\Mods\\mods.txt";
     if (GetFileAttributesA(mods_txt.c_str()) != INVALID_FILE_ATTRIBUTES) {
         std::ifstream in(mods_txt);
