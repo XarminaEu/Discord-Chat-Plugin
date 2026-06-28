@@ -1,5 +1,50 @@
 # Changelog
 
+## v4.0.7 (2026-06-28)
+
+### New Features
+- **Server Performance Optimization** - Plugin automatically fixes the common "server FPS drops to 4" issue on startup:
+  - **Engine.ini auto-patch** (persistent): Writes `NetServerMaxTickRate=120` and `bUseFixedFrameRate=False` to `Pal/Saved/Config/WindowsServer/Engine.ini` on first start. Takes effect after the next server restart.
+  - **Runtime console commands** (immediate): Executes `t.MaxFPS 120`, `p.MaxSubstepDeltaTime 0.01`, and `net.MaxRPCPerNetUpdate 64` via UE4SS 5 seconds after startup.
+  - Configurable via `config.json` under `server_performance` (`enabled`, `target_fps`, `patch_ini`).
+
+### Bug Fixes
+- **Lua crash fixed**: `p1 + 1` arithmetic on nil in bridge file parser — guard added in both source `main.lua` and embedded Lua.
+- **Lua crash fixed**: `ExecuteWithDelay` called without nil-guard — now safely skipped if unavailable.
+- **Duplicate join/leave/death events** suppressed: 15-second deduplication window prevents double Discord notifications when both the Lua hook and the log/console watcher fire for the same event.
+- **Wrong version string**: `Initialize()` logged "v3.2" — corrected to v4.0.7.
+- **LogWatcher error spam**: No longer logs ERROR every 5 seconds when the Logs directory doesn't exist yet.
+- **C++ unsigned overflow**: `line.find('|', npos+1)` — `npos` check now happens before the second find.
+- **NULL HMODULE under Wine/Proton**: `StartBridge` now falls back to `GetModuleHandleExA` with `GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS` if `GetModuleHandleA` returns NULL; DllMain HMODULE is stored and reused.
+
+---
+
+## v4.0.6 (2026-06-28)
+
+### Bug Fixes
+- **Join/Leave/Death events now work** - The Lua hooks for join/leave/death could not find the right Unreal functions in the current Palworld build. The plugin now uses the server console/log output to detect these events reliably.
+- **ConsoleReader and LogWatcher re-enabled** - Both watchers are started again and feed join/leave/death events directly to the Discord webhook. Chat is still handled by the Lua hook to avoid duplicates.
+- **Log path auto-detection** - LogWatcher defaults to `Pal/Saved/Logs` relative to the DLL directory.
+- **Player name extraction improved** - Extractor tries UE4SS quoted names, single-quoted names, `UserId=...` and `steam_...` identifiers.
+- **Version consistency** - All hardcoded version strings (C++, Lua, mod metadata) now report `v4.0.6`.
+
+---
+
+## v4.0.5 (2026-06-28)
+
+### Bug Fixes
+- **CurseForge upload compatibility** - The `dlls/` folder in the release ZIP is no longer empty, preventing CurseForge's "General error processing file".
+
+---
+
+## v4.0.4 (2026-06-28)
+
+### Bug Fixes
+- **Fixed bridge file path mismatch** - Lua and C++ now both use `ue4ss/Mods/PalworldDiscordBridge/dlls/PalDiscordBridge_out.txt` by default.
+- **Empty `dlls/` folder included** - Release ZIP contains the `dlls/` subfolder so the Lua bridge can write the file immediately.
+
+---
+
 ## v4.0.3 (2026-06-24)
 
 ### Bug Fixes

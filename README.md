@@ -14,7 +14,7 @@ A native C++ DLL server plugin for **Palworld** that bridges the in-game chat wi
 
 ## Installation
 
-1. Download the latest release zip from the [Releases](../../releases) page or use the `PalworldDiscordPlugin_v4.0.5.zip` in this repository.
+1. Download the latest release zip from the [Releases](../../releases) page or use the `PalworldDiscordPlugin_v4.0.6.zip` in this repository.
 2. Stop your Palworld server.
 3. Extract the ZIP directly into your server's `Pal/Binaries/Win64/` folder.
 
