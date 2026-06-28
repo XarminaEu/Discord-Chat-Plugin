@@ -1,4 +1,0 @@
-D:/Palworld/PalworldDiscordPlugin/build/CMakeFiles/PalworldDiscordPlugin.dir
-D:/Palworld/PalworldDiscordPlugin/build/CMakeFiles/INSTALL.dir
-D:/Palworld/PalworldDiscordPlugin/build/CMakeFiles/ALL_BUILD.dir
-D:/Palworld/PalworldDiscordPlugin/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,5 +1,0 @@
-PalworldDiscordBridge
-PalworldDiscordBridge v4.0.2
-Discord <-> Palworld chat bridge
-PalworldDiscordPlugin
-4.0.2

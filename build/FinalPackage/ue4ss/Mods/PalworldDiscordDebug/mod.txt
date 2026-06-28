@@ -1,5 +1,0 @@
-PalworldDiscordDebug
-PalworldDiscordDebug v1.0
-Debug/Diagnose Mod fuer PalworldDiscordPlugin
-
-1.0

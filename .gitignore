@@ -1,19 +1,19 @@
-# User-specific IDE settings
-.vs/
-.vscode/settings.json
-.vscode/launch.json
+# Repository policy: only project documentation and release zips are tracked.
+# Everything else (source, build artifacts, configs, tests) stays local.
 
-# UE4SS superbuild (large external repo, not part of this project)
-ue4ss/RE-UE4SS/
-ue4ss/build/
+# Ignore everything by default
+**
 
-# Note: build artifacts, DLLs, logs, old release zips and config.json are
-# intentionally NOT ignored so they can be committed/published as requested.
+# Keep root-level project markdown files
+!*.md
 
-# Generator tool: contains plaintext secrets. The generated encrypted bytes are
-# hardcoded in src/copyright_crypto.cpp; the generator itself must not be public.
-tools/gen_crypto.py
-tools/gen_crypto_output.txt
+# Keep the one project doc inside tools/
+!tools/
+!tools/README.md
 
-# Intermediate deploy staging directory (the .zip is the deliverable).
-build/DeployPackage/
+# Keep release zips in the root
+!PalworldDiscordPlugin.zip
+!PalworldDiscordPlugin_v*.zip
+
+# Keep this gitignore file itself
+!.gitignore
