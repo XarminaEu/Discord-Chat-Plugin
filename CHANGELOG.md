@@ -1,5 +1,34 @@
 # Changelog
 
+## v4.0.8 (2026-07-01)
+
+### New Features
+- **RCON admin commands** (via PalDefender / UE4SS console):
+  - `paldiscord.reload` — reloads `PalworldDiscordConfig/config.json` without server restart.
+  - `paldiscord.delaccount <name|steamid|uid>` — deletes the player save file (`Players/<uid>.sav`).
+  - `paldiscord.delbase <name|steamid|uid>` — destroys the player's build objects in-game (only works while the player is online).
+- **Player ID logging** — on every join the plugin logs `name`, `PlayerUID`, `SteamID` and platform ID to:
+  - `PalworldDiscordConfig/player_log.txt`
+  - `PalworldDiscordConfig/player_cache.json`
+- **Server performance options extended**:
+  - `network_tick_rate` config option (default `120`).
+  - `boost_priority` config option (default `false`) — raises server process priority to HIGH (use with caution).
+  - Engine.ini patch now also writes `MaxNetTickRate` and `MaxInternetClientRate` under `[IpNetDriver]`.
+  - Additional Lua runtime commands: `net.MaxRepArraySize`, `net.MaxRepArrayMemory`, `ai.SpawnCycle`, `wp.Runtime.MaxConsecutiveOverdueFrames`.
+
+### Changes
+- **Version bump** — all C++, Lua, mod metadata and package strings now report `v4.0.8`.
+- **README updated** — added `mods.json` / `enabled.txt` activation note for newer UE4SS builds.
+
+### Installation / Upgrade Notes
+- Extract the new ZIP to `Pal/Binaries/Win64/`.
+- Add the mod to the UE4SS mod list:
+  - Legacy UE4SS: `Win64/ue4ss/Mods/mods.txt` → add `PalworldDiscordBridge : 1`
+  - Newer UE4SS (Mods.json): `Win64/ue4ss/Mods/mods.json` → set `PalworldDiscordBridge` to `true` / enabled
+- Restart the server.
+
+---
+
 ## v4.0.7 (2026-06-28)
 
 ### New Features

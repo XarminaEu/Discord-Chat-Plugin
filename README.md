@@ -14,7 +14,7 @@ A native C++ DLL server plugin for **Palworld** that bridges the in-game chat wi
 
 ## Installation
 
-1. Download the latest release zip from the [Releases](../../releases) page or use the `PalworldDiscordPlugin_v4.0.6.zip` in this repository.
+1. Download the latest release zip from the [Releases](../../releases) page or use the `PalworldDiscordPlugin_v4.0.8.zip` in this repository.
 2. Stop your Palworld server.
 3. Extract the ZIP directly into your server's `Pal/Binaries/Win64/` folder.
 
@@ -32,10 +32,16 @@ A native C++ DLL server plugin for **Palworld** that bridges the in-game chat wi
                │   └── main.lua
                └── dlls/           (empty folder, used for the file bridge)
    ```
-4. Open `Win64/ue4ss/Mods/mods.txt` and add the line:
-   ```
-   PalworldDiscordBridge : 1
-   ```
+4. Enable the Lua mod in UE4SS:
+   - **Legacy UE4SS (mods.txt):** Open `Win64/ue4ss/Mods/mods.txt` and add:
+     ```
+     PalworldDiscordBridge : 1
+     ```
+   - **Newer UE4SS (mods.json):** Open `Win64/ue4ss/Mods/mods.json` and set:
+     ```json
+     "PalworldDiscordBridge": true
+     ```
+     Some UE4SS builds also use `Win64/ue4ss/Mods/PalworldDiscordBridge/enabled.txt` containing `1`.
 5. Open `Win64/PalworldDiscordConfig/config.json` and enter your Discord webhook URL (and bot token if you want Discord → Game chat).
 6. Start the server.
 
@@ -89,7 +95,7 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
 ## Troubleshooting
 
 - Check `PalworldDiscordPlugin.log` in `Win64/` for errors.
-- Make sure `PalworldDiscordBridge : 1` is in `ue4ss/Mods/mods.txt`.
+- Make sure the Lua mod is enabled (`PalworldDiscordBridge : 1` in `ue4ss/Mods/mods.txt`, or `"PalworldDiscordBridge": true` in `ue4ss/Mods/mods.json`).
 - Make sure the `ue4ss/Mods/PalworldDiscordBridge/dlls/` folder exists.
 - Enable `debug_mode: true` for more detailed logs.
 
