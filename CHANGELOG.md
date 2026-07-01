@@ -1,5 +1,32 @@
 # Changelog
 
+## v4.1.0 (2026-07-01)
+
+### New Features
+- **Embedded Web RCON Console** — ein kleiner HTTP-Server in der DLL, der eine browserbasierte RCON-Konsole auf Port 8080 (konfigurierbar) bereitstellt. Er verbindet sich mit dem PalDefender RCON-Server (Standard 127.0.0.1:25575) und dient als Web-Proxy.
+  - Login mit dem in der Config hinterlegten Admin-Passwort (`web_console.password`).
+  - Terminal-ähnliches UI mit Befehlshistorie (Pfeiltasten).
+  - Session-Token-Authentifizierung, Logout-Button.
+  - Endpunkte: `/api/login`, `/api/cmd`, `/api/logout`.
+
+### Config
+- Neue `web_console` Sektion in `config.json`:
+  - `enabled` (default `false`)
+  - `port` (default `8080`)
+  - `password` (UI-Login-Passwort, leer = deaktiviert aus Sicherheit)
+  - `rcon_host` (default `127.0.0.1`)
+  - `rcon_port` (default `25575`)
+  - `rcon_password` (PalDefender RCON-Passwort)
+
+### Security
+- Web Console wird **nicht** gestartet, wenn `password` leer ist, auch wenn `enabled: true` gesetzt ist.
+
+### Changes
+- Version bump auf **v4.1.0** in C++, Lua, Mod-Metadaten, Package-Script und README/CHANGELOG.
+- `config.json` Template: `debug_mode` auf `false` gesetzt und `events`/`web_console` Sektionen hinzugefügt.
+
+---
+
 ## v4.0.9 (2026-07-01)
 
 ### Bug Fixes

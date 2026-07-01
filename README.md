@@ -11,10 +11,11 @@ A native C++ DLL server plugin for **Palworld** that bridges the in-game chat wi
 - **Discord → Game Chat**: Discord messages are injected into the Palworld chat via the file bridge.
 - **Webhook Integration**: Sends rich embeds for chat, join, leave and death events.
 - **UE4SS Lua Bridge**: Ships with a Lua mod for in-game chat hooking without recompiling UE4SS.
+- **Embedded Web RCON Console**: Browser-based RCON terminal that connects to the PalDefender RCON server (port 8080 by default).
 
 ## Installation
 
-1. Download the latest release zip from the [Releases](../../releases) page or use the `PalworldDiscordPlugin_v4.0.8.zip` in this repository.
+1. Download the latest release zip from the [Releases](../../releases) page or use the `PalworldDiscordPlugin_v4.1.0.zip` in this repository.
 2. Stop your Palworld server.
 3. Extract the ZIP directly into your server's `Pal/Binaries/Win64/` folder.
 
@@ -79,6 +80,21 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
     "enabled": true,
     "incoming_file": "ue4ss/Mods/PalworldDiscordBridge/dlls/PalDiscordBridge_in.txt",
     "outgoing_file": "ue4ss/Mods/PalworldDiscordBridge/dlls/PalDiscordBridge_out.txt"
+  },
+  "server_performance": {
+    "enabled": true,
+    "target_fps": 120,
+    "network_tick_rate": 120,
+    "patch_ini": true,
+    "boost_priority": false
+  },
+  "web_console": {
+    "enabled": false,
+    "port": 8080,
+    "password": "",
+    "rcon_host": "127.0.0.1",
+    "rcon_port": 25575,
+    "rcon_password": ""
   }
 }
 ```
@@ -89,6 +105,8 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
 - `discord.bot_token` + `discord.channel_id`: Required for **Discord → Game Chat**. The bot needs `Read Message History` permission in the channel.
 - `events`: Enable or disable individual event types.
 - `bridge`: Leave the default paths as shown above. The Lua mod and the C++ plugin must read/write the same files.
+- `server_performance`: Tune server FPS/network tick rate and optionally boost process priority.
+- `web_console`: Embedded browser-based RCON console (connects to PalDefender RCON). Set `enabled: true` and configure `password` + `rcon_password` to use it.
 
 > ⚠️ **Do not edit `api_key`, product name, copyright or any other license-related values.** The plugin validates them at startup and will refuse to load if they do not match.
 
