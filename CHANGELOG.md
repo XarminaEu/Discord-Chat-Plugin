@@ -1,5 +1,28 @@
 # Changelog
 
+## v4.0.9 (2026-07-01)
+
+### Bug Fixes
+- **`ResolvePlayer` UID-Regex fehlerhaft** — `^[0-9A-Fa-f%-]+` hatte kein Endezeichen `$`, daher wurden Strings wie `"abc123xyz"` fälschlicherweise als UID erkannt. Jetzt: `^[0-9A-Fa-f%-]+$`.
+- **`TryGetPlayerUid` falsche Fallback-Methode** — `player_state:GetName()` gibt den internen UE-Objektnamen zurück (`PlayerState_0`), nicht die Spieler-UID. Entfernt.
+- **Leave-Hook toter Code** — `ctrl.GetPlayerName` war immer `nil` wenn der vorherige `obj.GetPlayerName`-Check bereits fehlgeschlagen war. Logik bereinigt und korrekt auf PlayerState vs. Controller-Objekttyp aufgeteilt.
+- **`PerformRemoteCopyrightCheck` doppelte Variable** — `program` und `product` enthielten beide `GetProductName()`. Eine Variable entfernt.
+- **`SavePlayerCache` unnötige Kopie** — `player_cache` wurde ohne Grund in ein neues `data`-Table kopiert. Direkt enkodiert.
+
+### Removed
+- **`BroadcastToGameChat` C++ Export** — war ein leerer Stub, der nichts tat und nie von Lua aufgerufen wurde.
+- **`debug_mode: true` als Default** — war für frische Installs schlecht (sehr viele Log-Zeilen). Jetzt `false`.
+- **`http_port` / `http_bind` in Default-Config** — HTTP-Server wurde in v4.0.2 entfernt; die toten Optionen blieben im Template. Jetzt entfernt.
+- **`[Alpha]` in Discord-Startup-Embed-Titel** — veraltet, entfernt.
+- **Identische `de ? "..." : "..."` Ternaries für Embed-Footer** — alle Branches gaben `"Palworld Discord Bridge"` zurück. Durch direktes Literal ersetzt.
+- **Doppeltes Log in `SendEmbed`** — Debug- und Info-Log mit identischem Inhalt. Debug-Zeile entfernt.
+- **Ungenutztes `size_t pos = 0` in `LooksLikeIpAddress`** — deklariert aber nie verwendet.
+
+### Changes
+- **Default-Config erweitert** — `server_performance` enthält jetzt auch `network_tick_rate` und `boost_priority`.
+
+---
+
 ## v4.0.8 (2026-07-01)
 
 ### New Features
