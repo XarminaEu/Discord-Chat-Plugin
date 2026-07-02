@@ -1,5 +1,20 @@
 # Changelog
 
+## v4.1.7 (2026-07-02)
+
+### Bug Fixes
+- **Maximaler Dedicated-Server Safe Mode** — im Kompatibilitätsmodus (`LoopAsync`/`ExecuteConsoleCommand` nicht verfügbar) werden jetzt nur noch absolute Minimum-Features aktiviert:
+  - Nur noch der **Chat-Hook** (`BroadcastChatMessage`) wird registriert.
+  - **Join/Leave/Death-Hooks** werden übersprungen.
+  - **paldiscord.delaccount** und **paldiscord.delbase** RCON-Kommandos werden nicht registriert.
+  - **ApplyServerOptimizations**, **OptimizeBaseActors**, **BroadcastSystemMessage** bleiben deaktiviert.
+  - Das C++ Plugin läuft weiterhin (Web Console, Discord Webhook, File Bridge, Auto-Restart).
+
+### Changes
+- Version bump auf **v4.1.7**.
+
+---
+
 ## v4.1.6 (2026-07-02)
 
 ### Bug Fixes
