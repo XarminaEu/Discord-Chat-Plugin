@@ -1,5 +1,25 @@
 # Changelog
 
+## v4.1.3 (2026-07-02)
+
+### New Features
+- **Scheduled Auto-Restart (`auto_restart`)** — automatischer Server-Neustart alle N Stunden, ausgerichtet an der Systemzeit (z.B. 00:00, 06:00, 12:00, 18:00 für `interval_hours: 6`).
+  - Sendet Discord-Warnung X Minuten vor dem Restart (`warning_minutes`).
+  - Sendet finale Discord-Nachricht beim Start des Restarts.
+  - Schreibt ein Signal-File, damit die Lua-Mod versucht `SaveGame`/`save` auszuführen.
+  - Beendet danach den Server-Prozess via `ExitProcess(0)`. Ein externer Wrapper (WindowsGSM, Batch, systemd, etc.) startet den Server neu.
+  - Optional: `restart_script` Pfad zu einer Batch/EXE, die kurz vor dem Beenden gestartet wird (z.B. um Wrapper zu benachrichtigen).
+
+### Config
+- Neue `auto_restart` Sektion:
+  - `enabled` (default `false`), `interval_hours` (default `6`), `warning_minutes` (default `5`), `send_webhook` (default `true`), `restart_script` (default `""`).
+
+### Changes
+- Neue Klasse `RestartManager` (`include/restart_manager.h`, `src/restart_manager.cpp`).
+- Version bump auf **v4.1.3**.
+
+---
+
 ## v4.1.2 (2026-07-02)
 
 ### New Features

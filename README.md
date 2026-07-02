@@ -113,6 +113,13 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
     "base_net_update_frequency": 5.0,
     "player_net_update_frequency": 60.0,
     "optimize_tick_interval": 0.5
+  },
+  "auto_restart": {
+    "enabled": false,
+    "interval_hours": 6,
+    "warning_minutes": 5,
+    "send_webhook": true,
+    "restart_script": ""
   }
 }
 ```
@@ -126,6 +133,7 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
 - `server_performance`: Tune server FPS/network tick rate and optionally boost process priority.
 - `web_console`: Embedded browser-based RCON console (connects to PalDefender RCON). Set `enabled: true` and configure `password` + `rcon_password` to use it.
 - `engine_tweaks`: Advanced network/engine tuning and base-actor replication throttling. **Enable with caution** — defaults are conservative. Useful when FPS drops with many bases/players.
+- `auto_restart`: Scheduled server restart aligned to system clock (00:00, 06:00, 12:00, 18:00 for 6h). Sends Discord warning, attempts save via Lua, then terminates the process. External wrapper (WindowsGSM, batch, etc.) must restart the process. Set `enabled: true` to use it.
 
 > ⚠️ **Do not edit `api_key`, product name, copyright or any other license-related values.** The plugin validates them at startup and will refuse to load if they do not match.
 
