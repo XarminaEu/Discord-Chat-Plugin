@@ -1,5 +1,19 @@
 # Changelog
 
+## v4.1.1 (2026-07-02)
+
+### Bug Fixes
+- **Doppelter Join/Leave/Death-Spam behoben** — `ConsoleReader` und `LogWatcher` haben beide dieselben Server-Log-Zeilen gelesen und Events doppelt an Discord geschickt. Der `ConsoleReader` wurde entfernt; nur noch `LogWatcher` wertet die Server-Logs aus.
+- **Dedup-Zeit zu lang** — Das interne Deduplizierungsfenster lag bei 300 Sekunden und unterdrückte damit echte Events (z. B. ein Spieler joined/leaved mehrfach innerhalb von 5 Minuten). Reduziert auf **15 Sekunden**, was Duplikate aus mehreren Quellen abfängt, aber echte Reconnects korrekt meldet.
+
+### Removed
+- `ConsoleReader` Klasse und Member aus `plugin.cpp` / `plugin.h` entfernt.
+
+### Changes
+- Version bump auf **v4.1.1**.
+
+---
+
 ## v4.1.0 (2026-07-01)
 
 ### New Features
