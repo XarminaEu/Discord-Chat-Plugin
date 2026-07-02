@@ -1,5 +1,23 @@
 # Changelog
 
+## v4.1.8 (2026-07-02)
+
+### Bug Fixes
+- **C++ Safe Mode** — neue Config-Sektion `dedicated_server_compat.enabled` (default `false`).
+  - Wenn aktiviert, deaktiviert die C++ Plugin diese riskanten Features:
+    - WebConsole
+    - Engine.ini Patching
+    - Prozess-Prioritäts-Boost
+    - Auto-Restart Manager
+  - Die Lua-Mod erkennt die Option ebenfalls und aktiviert den bestehenden Lua-Safe-Mode.
+  - Im Safe Mode bleiben aktiv: Discord Webhook, File Bridge, Discord Bot Polling, LogWatcher, Chat-Hook.
+
+### Changes
+- Neue Config-Sektion `dedicated_server_compat`.
+- Version bump auf **v4.1.8**.
+
+---
+
 ## v4.1.7 (2026-07-02)
 
 ### Bug Fixes
