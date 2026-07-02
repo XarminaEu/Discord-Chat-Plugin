@@ -1,5 +1,23 @@
 # Changelog
 
+## v4.1.4 (2026-07-02)
+
+### New Features
+- **Web Console Player/Banlist Tabs** — die eingebettete Web RCON Console hat jetzt Tabs:
+  - **Console**: RCON-Befehle wie bisher
+  - **Online**: Live-Spielerliste via `listplayers` mit Kick-/Ban-Buttons
+  - **Offline**: Spieler aus dem Cache (`player_cache.json`) mit Steam-/Platform-ID und Ban-Button
+  - **Banlist**: Gebannte Spieler via `banlist` mit Unban-Button
+  - Alle Spieler-Listen werden alle 30 Sekunden synchronisiert (Auto-Refresh)
+
+### API
+- Neue Endpunkte: `/api/players`, `/api/offline`, `/api/banlist`, `/api/action`
+
+### Changes
+- Version bump auf **v4.1.4**.
+
+---
+
 ## v4.1.3 (2026-07-02)
 
 ### New Features
