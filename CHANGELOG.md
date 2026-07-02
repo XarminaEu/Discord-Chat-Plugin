@@ -1,5 +1,22 @@
 # Changelog
 
+## v4.1.5 (2026-07-02)
+
+### New Features
+- **Web Console Savegames Tab** — Zeigt Spieler-Savegame-Dateien aus `Saved/SaveGames/0/*/Players/*.sav` an.
+  - Scant rekursiv nach `Players`-Ordnern in den ueblichen Dedicated-Server Pfaden.
+  - Zeigt die SteamID/UID (Dateiname) und den vollen Pfad an.
+  - **Delete-Button** pro Savegame, der die `.sav` Datei loescht (Sicherheits-Check: nur Dateien unter einem `Players`-Ordner).
+  - Auto-Refresh alle 30 Sekunden.
+
+### API
+- Neue Endpunkte: `/api/savegames`, `/api/deletesave`
+
+### Changes
+- Version bump auf **v4.1.5**.
+
+---
+
 ## v4.1.4 (2026-07-02)
 
 ### New Features
