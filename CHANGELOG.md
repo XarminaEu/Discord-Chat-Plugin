@@ -1,5 +1,22 @@
 # Changelog
 
+## v4.1.2 (2026-07-02)
+
+### New Features
+- **Engine/Network Tweaks (`engine_tweaks`)** — neue Config-Sektion für fortgeschrittene Server-Optimierung, wenn FPS bei vielen Basen/Spielern einbricht.
+  - **Engine.ini Patches** (C++ Plugin): `NetServerMaxTickRate`, `MaxNetTickRate`, `MaxInternetClientRate`, `MaxNetUpdateRate`, `NetClientTicksPerSecond`, `GameNetworkManager` Bandwidth-Limits, `ConfiguredInternetSpeed`, `ConfiguredLanSpeed`, `GarbageCollectionSettings.TimeBetweenPurgingPendingKillObjects`.
+  - **UE4SS Lua Base-Actor Throttling**: Alle 30 Sekunden werden Build-/Base-Camp-Actors auf niedrigere `NetUpdateFrequency` (default 5 Hz) gedrosselt. Player-Actors bleiben auf 60 Hz. Deaktivierbar via `optimize_base_actors`.
+
+### Config
+- Neue `engine_tweaks` Sektion in `config.json` (default: `enabled: false`).
+  - `enabled`, `net_server_max_tick_rate`, `max_net_tick_rate`, `max_internet_client_rate`, `total_net_bandwidth`, `max_dynamic_bandwidth`, `min_dynamic_bandwidth`, `configured_internet_speed`, `configured_lan_speed`, `max_net_update_rate`, `net_client_ticks_per_second`, `gc_time_between_purging`, `optimize_base_actors`, `base_net_update_frequency`, `player_net_update_frequency`, `optimize_tick_interval`.
+
+### Changes
+- `json.h`: Unterstützung für `double`/`float` Werte (`as_double`, `get_double`) hinzugefügt.
+- Version bump auf **v4.1.2**.
+
+---
+
 ## v4.1.1 (2026-07-02)
 
 ### Bug Fixes

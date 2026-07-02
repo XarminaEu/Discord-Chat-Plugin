@@ -95,6 +95,24 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
     "rcon_host": "127.0.0.1",
     "rcon_port": 25575,
     "rcon_password": ""
+  },
+  "engine_tweaks": {
+    "enabled": false,
+    "net_server_max_tick_rate": 120,
+    "max_net_tick_rate": 120,
+    "max_internet_client_rate": 1048576,
+    "total_net_bandwidth": 64000000,
+    "max_dynamic_bandwidth": 10000000,
+    "min_dynamic_bandwidth": 40000,
+    "configured_internet_speed": 104857600,
+    "configured_lan_speed": 104857600,
+    "max_net_update_rate": 120,
+    "net_client_ticks_per_second": 120,
+    "gc_time_between_purging": 300,
+    "optimize_base_actors": true,
+    "base_net_update_frequency": 5.0,
+    "player_net_update_frequency": 60.0,
+    "optimize_tick_interval": 0.5
   }
 }
 ```
@@ -107,6 +125,7 @@ Edit `PalworldDiscordConfig/config.json` next to the DLL:
 - `bridge`: Leave the default paths as shown above. The Lua mod and the C++ plugin must read/write the same files.
 - `server_performance`: Tune server FPS/network tick rate and optionally boost process priority.
 - `web_console`: Embedded browser-based RCON console (connects to PalDefender RCON). Set `enabled: true` and configure `password` + `rcon_password` to use it.
+- `engine_tweaks`: Advanced network/engine tuning and base-actor replication throttling. **Enable with caution** — defaults are conservative. Useful when FPS drops with many bases/players.
 
 > ⚠️ **Do not edit `api_key`, product name, copyright or any other license-related values.** The plugin validates them at startup and will refuse to load if they do not match.
 
