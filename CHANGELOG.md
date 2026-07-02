@@ -1,5 +1,21 @@
 # Changelog
 
+## v4.1.6 (2026-07-02)
+
+### Bug Fixes
+- **Dedicated-Server Crash-Resistenz** — automatischer Safe Mode, wenn `LoopAsync` oder `ExecuteConsoleCommand` nicht verfügbar sind (WindowsGSM / einige UE4SS-Setups).
+  - `ApplyServerOptimizations` wird übersprungen.
+  - `OptimizeBaseActors` wird übersprungen.
+  - `BroadcastSystemMessage` berührt auf Dedicated Servern keine `PlayerController`-Objekte mehr.
+  - Startup-Systemnachricht wird übersprungen.
+  - `JoinHook` führt den Join-Handler direkt aus, wenn `ExecuteWithDelay` im Safe Mode fehlt.
+
+### Changes
+- Neue globale Lua-Variable `DEDICATED_COMPAT` zur Laufzeit-Erkennung.
+- Version bump auf **v4.1.6**.
+
+---
+
 ## v4.1.5 (2026-07-02)
 
 ### New Features
